@@ -153,9 +153,8 @@ body.menu-open .burger span::after{ transform:rotate(-45deg); top:0; }
   min-height:100svh; display:flex; flex-direction:column; justify-content:center;
   padding-block:7rem 2.75rem; overflow:hidden;
   background:
-    radial-gradient(120% 80% at 50% -10%, oklch(0.27 0.07 264 /.85) 0%, transparent 55%),
-    radial-gradient(90% 60% at 85% 20%, oklch(0.24 0.06 262 /.6) 0%, transparent 60%),
-    linear-gradient(180deg, oklch(0.19 0.055 264/.84) 0%, oklch(0.16 0.05 264/.90) 55%, var(--navy-deep) 100%),
+    radial-gradient(120% 80% at 50% -10%, oklch(0.27 0.07 264 /.45) 0%, transparent 55%),
+    linear-gradient(180deg, oklch(0.19 0.055 264/.58) 0%, oklch(0.16 0.05 264/.68) 55%, var(--navy-deep) 100%),
     url('assets/morocco-peuple.jpg') center 30%/cover no-repeat;
 }
 .hero .glow{ position:absolute; inset-block-start:-22vh; left:50%; transform:translateX(-50%);
@@ -175,11 +174,13 @@ body.menu-open .burger span::after{ transform:rotate(-45deg); top:0; }
 .hero h1{
   font-size:clamp(2.5rem, 1.4rem + 4.4vw, 4.9rem);
   margin-bottom:1.4rem; text-wrap:balance;
+  text-shadow:0 2px 28px oklch(0.145 0.045 264 / .65), 0 1px 6px oklch(0.145 0.045 264 / .45);
   opacity:0; animation:rise 1s var(--ease) .25s forwards;
 }
 .hero h1 em{ font-style:normal; color:var(--gold-bright); }
 .hero .lead{ font-size:clamp(1.1rem,1rem + .55vw,1.4rem); font-family:var(--sans);
   font-weight:400; color:var(--text); max-width:46ch; margin:0 auto 2.4rem; line-height:1.6;
+  text-shadow:0 1px 16px oklch(0.145 0.045 264 / .6);
   opacity:0; animation:rise 1s var(--ease) .4s forwards; }
 .hero-cta{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
   opacity:0; animation:rise 1s var(--ease) .55s forwards; }
