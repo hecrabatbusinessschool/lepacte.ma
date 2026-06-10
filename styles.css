@@ -218,8 +218,8 @@ html[dir="rtl"] .scrolldown{ letter-spacing:.08em; }
    ============================================================ */
 .vision{ position:relative; isolation:isolate; text-align:center; padding-block:clamp(6rem,13vw,10rem);
   background:
-    linear-gradient(180deg, oklch(0.145 0.045 264/.93) 0%, oklch(0.18 0.05 264/.72) 48%, oklch(0.145 0.045 264/.96) 100%),
-    url('assets/morocco-mosque.jpg') center 28%/cover no-repeat; }
+    linear-gradient(180deg, oklch(0.145 0.045 264/.85) 0%, oklch(0.145 0.045 264/.35) 38% 62%, oklch(0.145 0.045 264/.92) 100%),
+    url('assets/morocco-mosque.jpg') center 38%/cover no-repeat; }
 .vision .wrap{ max-width:920px; position:relative; z-index:1; }
 .vision .mark{ font-family:var(--serif); font-size:5rem; line-height:0; color:var(--gold);
   display:block; height:2.4rem; opacity:.6; }
@@ -230,11 +230,12 @@ html[dir="rtl"] .scrolldown{ letter-spacing:.08em; }
 /* Bande Chefchaouen (serment) */
 .creed{ position:relative; isolation:isolate; text-align:center; padding-block:clamp(6rem,16vw,11rem);
   background:
-    linear-gradient(180deg, oklch(0.145 0.045 264/.84), oklch(0.17 0.052 264/.66), oklch(0.145 0.045 264/.9)),
+    linear-gradient(180deg, oklch(0.145 0.045 264/.72), oklch(0.16 0.05 264/.38), oklch(0.145 0.045 264/.85)),
     url('assets/morocco-chaouen.jpg') center 42%/cover no-repeat; }
 .creed .wrap{ max-width:880px; position:relative; z-index:1; }
 .creed .kicker{ color:var(--gold-bright); }
-.creed-line{ font-size:clamp(1.75rem,1.1rem + 2.6vw,3.05rem); color:var(--ivory); margin-top:1.1rem; text-wrap:balance; }
+.creed-line{ font-size:clamp(1.75rem,1.1rem + 2.6vw,3.05rem); color:var(--ivory); margin-top:1.1rem; text-wrap:balance;
+  text-shadow:0 2px 26px oklch(0.145 0.045 264 / .65), 0 1px 6px oklch(0.145 0.045 264 / .4); }
 
 /* Crédits photos */
 .credits{ margin-top:1.4rem; font-size:.74rem; color:var(--text-muted); opacity:.72; }
