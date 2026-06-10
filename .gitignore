@@ -1,0 +1,17 @@
+# Outils de prévisualisation locale (non nécessaires au site)
+.claude/
+
+# Documents de travail internes
+docs/plans/
+
+# Image source (affiche d'origine)
+WhatsApp Image*.jpeg
+
+# Système / divers
+.DS_Store
+*.bak
+_*.py
+
+# Notes de design internes (impeccable)
+PRODUCT.md
+DESIGN.md

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Le Pacte — Programme de gouvernement 2030-2035</title>
+<meta name="description" content="Le programme de gouvernement du Pacte pour le Maroc 2030-2035 : vision, Cap 2035, sept chantiers de transformation, trajectoire et impact." />
+<meta property="og:title" content="Le Pacte — Programme de gouvernement 2030-2035" />
+<meta property="og:description" content="Sept chantiers pour faire du Maroc l'un des pays les plus performants et agréables à vivre d'ici 2035." />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Hanken+Grotesk:wght@400;500;600;700&family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* ====== Page Programme (spécifique) ====== */
+.prog-hero{ position:relative; isolation:isolate; text-align:center; overflow:hidden;
+  padding-block:clamp(8rem,16vw,11rem) clamp(3rem,7vw,5rem);
+  background:
+    radial-gradient(120% 80% at 50% -10%, oklch(0.27 0.07 264 /.6) 0%, transparent 55%),
+    linear-gradient(180deg, oklch(0.15 0.045 264/.85) 0%, oklch(0.17 0.05 264/.74) 45%, var(--navy-deep) 100%),
+    url('assets/morocco-rabat.jpg') center 30%/cover no-repeat; }
+.prog-hero .motif{ opacity:.05; }
+.prog-hero .arch{ position:absolute; inset-block-end:-12%; left:50%; transform:translateX(-50%);
+  width:min(680px,116vw); height:min(680px,116vw); z-index:0; opacity:.45; }
+.prog-hero .arch svg{ width:100%; height:100%; }
+.prog-hero .arch path{ fill:none; stroke:var(--gold-deep); stroke-width:0.4; }
+.prog-hero .wrap{ position:relative; z-index:1; max-width:880px; }
+.prog-hero .kicker{ display:inline-flex; align-items:center; gap:.7rem; }
+.prog-hero .kicker::before, .prog-hero .kicker::after{ content:""; width:26px; height:1px; background:var(--gold-deep); }
+.prog-hero h1{ font-size:clamp(2.3rem,1.5rem + 3.4vw,4.1rem); margin:1.3rem 0 1.2rem; text-wrap:balance; }
+.prog-hero .lead{ color:var(--text-muted); font-size:clamp(1.05rem,1rem + .4vw,1.3rem); max-width:50ch; margin:0 auto 2.1rem; line-height:1.6; }
+.prog-cta{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+.section{ padding-block:clamp(4rem,9vw,7rem); position:relative; }
+.section.alt{ background:var(--navy-deep); }
+.section .head{ text-align:center; max-width:700px; margin:0 auto clamp(2.4rem,5vw,3.6rem); }
+.section h2{ font-size:clamp(1.9rem,1.4rem + 2.4vw,3rem); margin-top:.8rem; }
+.section .head p{ color:var(--text-muted); margin-top:1rem; }
+
+/* Vision / méthode */
+.method-band{ text-align:center; padding-block:clamp(3.5rem,7vw,5.5rem); }
+.method-vision{ font-family:var(--serif); font-size:clamp(1.6rem,1.2rem + 2vw,2.6rem); color:var(--ivory);
+  max-width:24ch; margin:.7rem auto 1.8rem; line-height:1.25; text-wrap:balance; }
+.method-chips{ display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; }
+.method-chips span{ border:1px solid var(--line); border-radius:99px; padding:.5rem 1.1rem; font-size:.82rem;
+  color:var(--text-muted); letter-spacing:.04em; }
+
+/* Cap 2035 (réutilise .value) */
+.cap-grid{ display:grid; gap:0 clamp(2rem,4vw,3.5rem); }
+@media (min-width:800px){ .cap-grid{ grid-template-columns:1fr 1fr; } }
+.cap-grid .value{ padding-block:1.5rem; }
+
+/* Bande avenir (centrale solaire) */
+.avenir-band{ position:relative; isolation:isolate; text-align:center; padding-block:clamp(5rem,12vw,8rem);
+  background:
+    linear-gradient(180deg, oklch(0.145 0.045 264/.82), oklch(0.16 0.05 264/.66), oklch(0.145 0.045 264/.9)),
+    url('assets/morocco-solar.jpg') center/cover no-repeat; }
+.avenir-band .wrap{ position:relative; z-index:1; max-width:820px; }
+.avenir-band .kicker{ color:var(--gold-bright); }
+
+/* Chantiers */
+.chantiers-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(1.2rem,2.4vw,1.8rem); }
+.chantier-card{ background:linear-gradient(180deg, var(--navy-2), var(--navy-deep)); border:1px solid var(--line-soft);
+  border-radius:16px; padding:clamp(1.5rem,3vw,2.2rem); transition:transform .35s var(--ease), border-color .35s; }
+.chantier-card:hover{ transform:translateY(-4px); border-color:var(--gold-deep); }
+.chantier-card .pilier{ font-size:.7rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
+html[dir="rtl"] .chantier-card .pilier{ letter-spacing:.03em; }
+.chantier-card .axis-num{ font-family:var(--serif); font-size:1.7rem; color:var(--gold); line-height:1; display:block; }
+.chantier-card h3{ font-size:1.5rem; margin:.5rem 0 .7rem; }
+.chantier-card .cap{ color:var(--text); font-family:var(--serif); font-size:1.12rem; margin-bottom:1rem; line-height:1.35; }
+.chantier-card ul{ list-style:none; display:grid; gap:.55rem; }
+.chantier-card li{ color:var(--text-muted); font-size:.93rem; padding-inline-start:1.1rem; position:relative; }
+.chantier-card li::before{ content:""; position:absolute; inset-inline-start:0; inset-block-start:.55em;
+  width:5px; height:5px; border-radius:50%; background:var(--gold-deep); }
+
+/* Trajectoire */
+.timeline{ display:grid; gap:clamp(1.6rem,3vw,2.2rem); }
+@media (min-width:820px){ .timeline{ grid-template-columns:repeat(3,1fr); } }
+.phase{ border-block-start:2px solid var(--gold-deep); padding-block-start:1.3rem; }
+.phase .ph-label{ font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
+html[dir="rtl"] .phase .ph-label{ letter-spacing:.03em; }
+.phase h3{ font-size:1.4rem; margin:.35rem 0 .7rem; }
+.phase p{ color:var(--text-muted); }
+
+/* Gouverner & financer */
+.gov-grid{ display:grid; gap:1.1rem 2rem; max-width:820px; margin:0 auto; }
+@media (min-width:700px){ .gov-grid{ grid-template-columns:1fr 1fr; } }
+.gov-item{ display:flex; gap:.8rem; color:var(--text-muted); align-items:flex-start; }
+.gov-item .mk{ color:var(--gold); flex:none; font-family:var(--serif); font-size:1.2rem; line-height:1.3; }
+
+/* Bande d'appel (réutilise .creed) */
+.creed .prog-cta{ margin-top:1.9rem; }
+.dl-note{ text-align:center; color:var(--text-muted); font-size:.82rem; margin-top:1.4rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#cap" data-i18n="skip">Aller au programme</a>
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <clipPath id="archClip" clipPathUnits="objectBoundingBox">
+      <path d="M0,1 L0,0.44 Q0,0 0.5,0 Q1,0 1,0.44 L1,1 Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<!-- ============ EN-TÊTE ============ -->
+<header class="header" id="header">
+  <a class="brand" href="index.html" aria-label="Le Pacte, accueil">
+    <img src="assets/emblem-gold.png" alt="" />
+    <span class="name">LE PACTE<small data-i18n="brand.sub">De l'excellence et du mérite</small></span>
+  </a>
+  <nav class="nav" aria-label="Navigation principale">
+    <a href="index.html" data-i18n="nav.home">Accueil</a>
+    <a href="#cap" data-i18n="nav.cap">Le Cap 2035</a>
+    <a href="#axes" data-i18n="nav.axes">Les axes</a>
+    <a href="#trajectoire" data-i18n="nav.trajectoire">Trajectoire</a>
+  </nav>
+  <div class="actions">
+    <button class="lang" id="langBtn" aria-label="Changer de langue">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+      <span id="langLabel">العربية</span>
+    </button>
+    <a href="index.html#join" class="btn btn-gold" data-i18n="cta.sign">Signer le pacte</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" data-i18n="nav.home">Accueil</a>
+  <a href="#cap" data-i18n="nav.cap">Le Cap 2035</a>
+  <a href="#axes" data-i18n="nav.axes">Les axes</a>
+  <a href="#trajectoire" data-i18n="nav.trajectoire">Trajectoire</a>
+  <a href="index.html#join" class="btn btn-gold btn-lg" data-i18n="cta.sign">Signer le pacte</a>
+</div>
+
+<!-- ============ HERO PROGRAMME ============ -->
+<section class="prog-hero" id="top">
+  <div class="motif"></div>
+  <div class="arch" aria-hidden="true">
+    <svg viewBox="0 0 100 100" fill="none"><path d="M2,100 L2,46 Q2,4 50,4 Q98,4 98,46 L98,100"/></svg>
+  </div>
+  <div class="wrap">
+    <span class="kicker" data-i18n="prog.kicker">Programme de gouvernement · 2030-2035</span>
+    <h1 data-i18n="prog.title">Le Pacte pour le Maroc 2030-2035</h1>
+    <p class="lead" data-i18n="prog.lead">Faire du Maroc, d'ici 2035, l'un des pays les plus performants et les plus agréables à vivre de sa région.</p>
+    <div class="prog-cta">
+      <a href="#cap" class="btn btn-gold btn-lg" data-i18n="cta.read">Découvrir le Cap 2035</a>
+      <a href="docs/programme-2030-2035.md" download class="btn btn-ghost btn-lg" data-i18n="cta.download">Télécharger le programme</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISION / MÉTHODE ============ -->
+<section class="method-band">
+  <div class="wrap">
+    <p class="kicker reveal" data-i18n="method.label">Notre vision</p>
+    <p class="method-vision reveal" data-d="1" data-i18n="method.vision">Un Maroc d'excellence, fidèle à ses valeurs, tourné vers l'avenir.</p>
+    <div class="method-chips reveal" data-d="2">
+      <span data-i18n="method.m1">Mérite</span>
+      <span data-i18n="method.m2">Intégrité</span>
+      <span data-i18n="method.m3">Redevabilité</span>
+      <span data-i18n="method.m4">Preuve</span>
+      <span data-i18n="method.m5">Écoute</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LE CAP 2035 ============ -->
+<section class="section alt" id="cap">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker reveal" data-i18n="cap.kicker">Le Cap 2035</p>
+      <h2 class="reveal" data-d="1" data-i18n="cap.title">Dix objectifs nationaux</h2>
+      <p class="reveal" data-d="2" data-i18n="cap.intro">Dix repères mesurables guident l'action (point de départ vers 2030, cible 2035).</p>
+    </div>
+    <div class="cap-grid">
+      <div class="value reveal"><span class="num">01</span><div><p data-i18n="cap.1">Éducation : entrer dans le premier tiers régional et ramener l'abandon au collège sous 2%.</p></div></div>
+      <div class="value reveal"><span class="num">02</span><div><p data-i18n="cap.2">Emploi des jeunes : chômage des 15-24 ans sous 18% et environ 1,5 million d'emplois.</p></div></div>
+      <div class="value reveal"><span class="num">03</span><div><p data-i18n="cap.3">Santé : couverture effective proche de 100% et 2 à 3 ans d'espérance de vie en bonne santé en plus.</p></div></div>
+      <div class="value reveal"><span class="num">04</span><div><p data-i18n="cap.4">Croissance : 5 à 6% par an et revenu par habitant en hausse d'environ 40%.</p></div></div>
+      <div class="value reveal"><span class="num">05</span><div><p data-i18n="cap.5">Intégrité : progresser d'au moins 30 places sur l'indice de perception de la corruption.</p></div></div>
+      <div class="value reveal"><span class="num">06</span><div><p data-i18n="cap.6">Eau : sécuriser durablement l'approvisionnement par le dessalement et la réutilisation.</p></div></div>
+      <div class="value reveal"><span class="num">07</span><div><p data-i18n="cap.7">Énergie : plus de 60% d'électricité d'origine renouvelable.</p></div></div>
+      <div class="value reveal"><span class="num">08</span><div><p data-i18n="cap.8">Numérique : 100% des démarches publiques accessibles en ligne.</p></div></div>
+      <div class="value reveal"><span class="num">09</span><div><p data-i18n="cap.9">Pauvreté : réduite de moitié, avec une protection sociale universelle.</p></div></div>
+      <div class="value reveal"><span class="num">10</span><div><p data-i18n="cap.10">Femmes : taux d'activité porté d'environ 20% vers 35%.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BANDE AVENIR ============ -->
+<section class="avenir-band" id="avenir">
+  <div class="wrap">
+    <p class="kicker reveal" data-i18n="avenir.kicker">L'avenir</p>
+    <p class="creed-line serif reveal" data-d="1" data-i18n="avenir.line">Un Maroc souverain, durable et tourné vers l'avenir.</p>
+  </div>
+</section>
+
+<!-- ============ LES 13 AXES ============ -->
+<section class="section" id="axes">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker reveal" data-i18n="axes.kicker">Le programme</p>
+      <h2 class="reveal" data-d="1" data-i18n="axes.title">Les treize axes</h2>
+      <p class="reveal" data-d="2" data-i18n="axes.intro">Un programme classique couvrant tous les axes de développement du pays.</p>
+    </div>
+    <div class="chantiers-grid">
+      <article class="chantier-card reveal"><span class="axis-num">01</span><h3 data-i18n="ax1.t">Vision politique et valeurs</h3><ul><li data-i18n="ax1.a">Justice sociale et égalité des chances</li><li data-i18n="ax1.b">Souveraineté et modernisation</li><li data-i18n="ax1.c">Intégrité, mérite et redevabilité</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">02</span><h3 data-i18n="ax2.t">Éducation, formation et recherche</h3><ul><li data-i18n="ax2.a">Mérite : bourses et internats d'excellence</li><li data-i18n="ax2.b">Éthique, civisme et intégrité des examens</li><li data-i18n="ax2.c">Excellence des apprentissages, langues et recherche</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">03</span><h3 data-i18n="ax3.t">Économie, emploi et pouvoir d'achat</h3><ul><li data-i18n="ax3.a">Fiscalité réformée et climat des affaires</li><li data-i18n="ax3.b">Soutien aux entrepreneurs et aux PME</li><li data-i18n="ax3.c">Industrie nationale et recul de l'informel</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">04</span><h3 data-i18n="ax4.t">Santé et protection sociale</h3><ul><li data-i18n="ax4.a">Hôpitaux régionaux renforcés</li><li data-i18n="ax4.b">Couverture médicale et médecin traitant</li><li data-i18n="ax4.c">Parcours patient digitalisé et prévention</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">05</span><h3 data-i18n="ax5.t">Justice sociale et inégalités</h3><ul><li data-i18n="ax5.a">Soutien aux classes moyennes et aux plus vulnérables</li><li data-i18n="ax5.b">Femmes, handicap et inclusion</li><li data-i18n="ax5.c">Monde rural et régions défavorisées</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">06</span><h3 data-i18n="ax6.t">Gouvernance et anti-corruption</h3><ul><li data-i18n="ax6.a">Digitalisation complète des services publics</li><li data-i18n="ax6.b">Simplification administrative et délais opposables</li><li data-i18n="ax6.c">Marchés publics contrôlés, indicateurs publiés</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">07</span><h3 data-i18n="ax7.t">Sécurité, justice et ordre public</h3><ul><li data-i18n="ax7.a">Sécurité intérieure et lutte contre la cybercriminalité</li><li data-i18n="ax7.b">Justice indépendante et plus rapide</li><li data-i18n="ax7.c">Prévention, prisons et réinsertion</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">08</span><h3 data-i18n="ax8.t">Territoires et monde rural</h3><ul><li data-i18n="ax8.a">Régionalisation et soutien aux communes</li><li data-i18n="ax8.b">Infrastructures et transport public</li><li data-i18n="ax8.c">Eau, santé et école pour le monde rural</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">09</span><h3 data-i18n="ax9.t">Environnement, eau, énergie, climat</h3><ul><li data-i18n="ax9.a">Sécurité de l'eau (dessalement, réutilisation)</li><li data-i18n="ax9.b">Énergies renouvelables et hydrogène vert</li><li data-i18n="ax9.c">Agriculture durable et villes vertes</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">10</span><h3 data-i18n="ax10.t">Numérique, innovation et IA</h3><ul><li data-i18n="ax10.a">Services publics 100% en ligne</li><li data-i18n="ax10.b">Souveraineté numérique et cybersécurité</li><li data-i18n="ax10.c">Intelligence artificielle, données et startups</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">11</span><h3 data-i18n="ax11.t">Culture, jeunesse et sport</h3><ul><li data-i18n="ax11.a">Patrimoine et industries créatives</li><li data-i18n="ax11.b">Sport pour tous et de haut niveau</li><li data-i18n="ax11.c">Service civique et engagement des jeunes</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">12</span><h3 data-i18n="ax12.t">Diplomatie et diaspora</h3><ul><li data-i18n="ax12.a">Diplomatie économique et partenariats</li><li data-i18n="ax12.b">Leadership et intégration africaine</li><li data-i18n="ax12.c">Marocains du monde mobilisés</li></ul></article>
+      <article class="chantier-card reveal"><span class="axis-num">13</span><h3 data-i18n="ax13.t">Financement et faisabilité</h3><ul><li data-i18n="ax13.a">Aucune promesse non financée</li><li data-i18n="ax13.b">Croissance, fiscalité juste, intégrité qui rapporte</li><li data-i18n="ax13.c">Priorités, calendrier et évaluation</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRAJECTOIRE ============ -->
+<section class="section alt" id="trajectoire">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker reveal" data-i18n="traj.kicker">Le calendrier</p>
+      <h2 class="reveal" data-d="1" data-i18n="traj.title">La trajectoire 2030-2035</h2>
+    </div>
+    <div class="timeline">
+      <div class="phase reveal" data-d="1">
+        <p class="ph-label" data-i18n="traj.p1.label">Les 100 premiers jours</p>
+        <h3 data-i18n="traj.p1.t">Les preuves de la confiance</h3>
+        <p data-i18n="traj.p1.d">Concours transparents, démarches en ligne, premiers bilans publics et plans d'urgence pour l'école, l'eau et la santé.</p>
+      </div>
+      <div class="phase reveal" data-d="2">
+        <p class="ph-label" data-i18n="traj.p2.label">Années 1-2</p>
+        <h3 data-i18n="traj.p2.t">Le déploiement</h3>
+        <p data-i18n="traj.p2.d">Préscolaire rural, médecin traitant, délais opposables, accélération du dessalement et des énergies renouvelables.</p>
+      </div>
+      <div class="phase reveal" data-d="3">
+        <p class="ph-label" data-i18n="traj.p3.label">Années 3-5</p>
+        <h3 data-i18n="traj.p3.t">La généralisation</h3>
+        <p data-i18n="traj.p3.d">Cibles du Cap 2035 atteintes, souveraineté hydrique et énergétique renforcée, services publics entièrement numériques.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GOUVERNER & FINANCER ============ -->
+<section class="section" id="gouverner">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker reveal" data-i18n="gov.kicker">La méthode</p>
+      <h2 class="reveal" data-d="1" data-i18n="gov.title">Gouverner et financer</h2>
+    </div>
+    <div class="gov-grid">
+      <div class="gov-item reveal"><span class="mk">01</span><p data-i18n="gov.g1">Un tableau de bord national public et un bilan rendu aux citoyens tous les six mois.</p></div>
+      <div class="gov-item reveal"><span class="mk">02</span><p data-i18n="gov.g2">Données ouvertes, régionalisation avancée et participation citoyenne.</p></div>
+      <div class="gov-item reveal"><span class="mk">03</span><p data-i18n="gov.g3">Financé par la croissance, une fiscalité plus juste et l'intégrité qui rapporte.</p></div>
+      <div class="gov-item reveal"><span class="mk">04</span><p data-i18n="gov.g4">Aucune promesse non financée, une dette maîtrisée, des réformes séquencées.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPEL ============ -->
+<section class="creed" id="appel">
+  <div class="wrap">
+    <p class="kicker reveal" data-i18n="ctaband.kicker">Rejoignez le mouvement</p>
+    <p class="creed-line serif reveal" data-d="1" data-i18n="ctaband.title">Ensemble, bâtissons le Maroc de 2035.</p>
+    <div class="prog-cta reveal" data-d="2">
+      <a href="index.html#join" class="btn btn-gold btn-lg" data-i18n="cta.sign">Signer le pacte</a>
+      <a href="docs/programme-2030-2035.md" download class="btn btn-ghost btn-lg" data-i18n="cta.download">Télécharger le programme</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIED DE PAGE ============ -->
+<footer class="footer">
+  <div class="wrap footer-top">
+    <div>
+      <a class="brand" href="index.html" aria-label="Le Pacte">
+        <img src="assets/emblem-gold.png" alt="" />
+        <span class="name">LE PACTE<small data-i18n="brand.sub">De l'excellence et du mérite</small></span>
+      </a>
+      <p class="foot-tag" data-i18n="footer.tag">Ensemble, signons le pacte de l'avenir.</p>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h4 data-i18n="footer.explore">Explorer</h4>
+        <a href="index.html" data-i18n="nav.home">Accueil</a>
+        <a href="#cap" data-i18n="nav.cap">Le Cap 2035</a>
+        <a href="#axes" data-i18n="nav.axes">Les axes</a>
+        <a href="index.html#join" data-i18n="cta.sign">Signer le pacte</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.follow">Suivre</h4>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8A1.5 1.5 0 1 0 6.5 5a1.5 1.5 0 0 0 0 3zM5 10h3v9H5zm6 0h2.8v1.3c.4-.7 1.4-1.5 3-1.5 2.7 0 3.2 1.8 3.2 4.1V19h-3v-4.5c0-1.1 0-2.5-1.5-2.5s-1.7 1.2-1.7 2.4V19h-3z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.5 12 5.5 12 5.5s-6 0-7.9.6A3 3 0 0 0 2 8.2 31 31 0 0 0 1.7 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.6 7.9.6 7.9.6s6 0 7.9-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22.3 12 31 31 0 0 0 22 8.2zM10 15V9l5.2 3z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="footer.contact">Contact</h4>
+        <a href="https://lepacte.ma">lepacte.ma</a>
+        <a href="mailto:contact@lepacte.ma">contact@lepacte.ma</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Le Pacte. <span data-i18n="footer.rights">Tous droits réservés.</span></span>
+    <span class="flag">
+      <span data-i18n="footer.made">Pour un Maroc d'excellence</span>
+      <span class="strip" aria-label="Maroc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.5 7.6H22l-6 4.5 2.3 7.4L12 18l-6.3 4.5L8 15.1 2 10.6h7.5z"/></svg></span>
+    </span>
+  </div>
+  <div class="wrap credits">
+    <span data-i18n="credits.label">Photographies</span> : Wikimedia Commons — Ayman.mesa25, Fbrandao.1963, Petar Milošević, Richard Allaway, Vincent If Huang (<a href="https://commons.wikimedia.org" target="_blank" rel="noopener">CC BY / CC BY-SA</a>).
+  </div>
+</footer>
+
+<script>
+const I18N = {
+  fr: {
+    "skip":"Aller au programme",
+    "brand.sub":"De l'excellence et du mérite",
+    "nav.home":"Accueil","nav.cap":"Le Cap 2035","nav.axes":"Les axes","nav.trajectoire":"Trajectoire",
+    "cta.sign":"Signer le pacte","cta.read":"Découvrir le Cap 2035","cta.download":"Télécharger le programme",
+    "prog.kicker":"Programme de gouvernement · 2030-2035",
+    "prog.title":"Le Pacte pour le Maroc 2030-2035",
+    "prog.lead":"Faire du Maroc, d'ici 2035, l'un des pays les plus performants et les plus agréables à vivre de sa région.",
+    "method.label":"Notre vision",
+    "method.vision":"Un Maroc d'excellence, fidèle à ses valeurs, tourné vers l'avenir.",
+    "method.m1":"Mérite","method.m2":"Intégrité","method.m3":"Redevabilité","method.m4":"Preuve","method.m5":"Écoute",
+    "cap.kicker":"Le Cap 2035","cap.title":"Dix objectifs nationaux",
+    "cap.intro":"Dix repères mesurables guident l'action (point de départ vers 2030, cible 2035).",
+    "cap.1":"Éducation : entrer dans le premier tiers régional et ramener l'abandon au collège sous 2%.",
+    "cap.2":"Emploi des jeunes : chômage des 15-24 ans sous 18% et environ 1,5 million d'emplois.",
+    "cap.3":"Santé : couverture effective proche de 100% et 2 à 3 ans d'espérance de vie en bonne santé en plus.",
+    "cap.4":"Croissance : 5 à 6% par an et revenu par habitant en hausse d'environ 40%.",
+    "cap.5":"Intégrité : progresser d'au moins 30 places sur l'indice de perception de la corruption.",
+    "cap.6":"Eau : sécuriser durablement l'approvisionnement par le dessalement et la réutilisation.",
+    "cap.7":"Énergie : plus de 60% d'électricité d'origine renouvelable.",
+    "cap.8":"Numérique : 100% des démarches publiques accessibles en ligne.",
+    "cap.9":"Pauvreté : réduite de moitié, avec une protection sociale universelle.",
+    "cap.10":"Femmes : taux d'activité porté d'environ 20% vers 35%.",
+    "avenir.kicker":"L'avenir","avenir.line":"Un Maroc souverain, durable et tourné vers l'avenir.","credits.label":"Photographies",
+    "axes.kicker":"Le programme","axes.title":"Les treize axes","axes.intro":"Un programme classique couvrant tous les axes de développement du pays.",
+    "ax1.t":"Vision politique et valeurs","ax1.a":"Justice sociale et égalité des chances","ax1.b":"Souveraineté et modernisation","ax1.c":"Intégrité, mérite et redevabilité",
+    "ax2.t":"Éducation, formation et recherche","ax2.a":"Mérite : bourses et internats d'excellence","ax2.b":"Éthique, civisme et intégrité des examens","ax2.c":"Excellence des apprentissages, langues et recherche",
+    "ax3.t":"Économie, emploi et pouvoir d'achat","ax3.a":"Fiscalité réformée et climat des affaires","ax3.b":"Soutien aux entrepreneurs et aux PME","ax3.c":"Industrie nationale et recul de l'informel",
+    "ax4.t":"Santé et protection sociale","ax4.a":"Hôpitaux régionaux renforcés","ax4.b":"Couverture médicale et médecin traitant","ax4.c":"Parcours patient digitalisé et prévention",
+    "ax5.t":"Justice sociale et inégalités","ax5.a":"Soutien aux classes moyennes et aux plus vulnérables","ax5.b":"Femmes, handicap et inclusion","ax5.c":"Monde rural et régions défavorisées",
+    "ax6.t":"Gouvernance et anti-corruption","ax6.a":"Digitalisation complète des services publics","ax6.b":"Simplification administrative et délais opposables","ax6.c":"Marchés publics contrôlés, indicateurs publiés",
+    "ax7.t":"Sécurité, justice et ordre public","ax7.a":"Sécurité intérieure et lutte contre la cybercriminalité","ax7.b":"Justice indépendante et plus rapide","ax7.c":"Prévention, prisons et réinsertion",
+    "ax8.t":"Territoires et monde rural","ax8.a":"Régionalisation et soutien aux communes","ax8.b":"Infrastructures et transport public","ax8.c":"Eau, santé et école pour le monde rural",
+    "ax9.t":"Environnement, eau, énergie, climat","ax9.a":"Sécurité de l'eau (dessalement, réutilisation)","ax9.b":"Énergies renouvelables et hydrogène vert","ax9.c":"Agriculture durable et villes vertes",
+    "ax10.t":"Numérique, innovation et IA","ax10.a":"Services publics 100% en ligne","ax10.b":"Souveraineté numérique et cybersécurité","ax10.c":"Intelligence artificielle, données et startups",
+    "ax11.t":"Culture, jeunesse et sport","ax11.a":"Patrimoine et industries créatives","ax11.b":"Sport pour tous et de haut niveau","ax11.c":"Service civique et engagement des jeunes",
+    "ax12.t":"Diplomatie et diaspora","ax12.a":"Diplomatie économique et partenariats","ax12.b":"Leadership et intégration africaine","ax12.c":"Marocains du monde mobilisés",
+    "ax13.t":"Financement et faisabilité","ax13.a":"Aucune promesse non financée","ax13.b":"Croissance, fiscalité juste, intégrité qui rapporte","ax13.c":"Priorités, calendrier et évaluation",
+    "traj.kicker":"Le calendrier","traj.title":"La trajectoire 2030-2035",
+    "traj.p1.label":"Les 100 premiers jours","traj.p1.t":"Les preuves de la confiance","traj.p1.d":"Concours transparents, démarches en ligne, premiers bilans publics et plans d'urgence pour l'école, l'eau et la santé.",
+    "traj.p2.label":"Années 1-2","traj.p2.t":"Le déploiement","traj.p2.d":"Préscolaire rural, médecin traitant, délais opposables, accélération du dessalement et des énergies renouvelables.",
+    "traj.p3.label":"Années 3-5","traj.p3.t":"La généralisation","traj.p3.d":"Cibles du Cap 2035 atteintes, souveraineté hydrique et énergétique renforcée, services publics entièrement numériques.",
+    "gov.kicker":"La méthode","gov.title":"Gouverner et financer",
+    "gov.g1":"Un tableau de bord national public et un bilan rendu aux citoyens tous les six mois.",
+    "gov.g2":"Données ouvertes, régionalisation avancée et participation citoyenne.",
+    "gov.g3":"Financé par la croissance, une fiscalité plus juste et l'intégrité qui rapporte.",
+    "gov.g4":"Aucune promesse non financée, une dette maîtrisée, des réformes séquencées.",
+    "ctaband.kicker":"Rejoignez le mouvement","ctaband.title":"Ensemble, bâtissons le Maroc de 2035.",
+    "footer.tag":"Ensemble, signons le pacte de l'avenir.","footer.explore":"Explorer","footer.follow":"Suivre","footer.contact":"Contact",
+    "footer.rights":"Tous droits réservés.","footer.made":"Pour un Maroc d'excellence",
+    "_langLabel":"العربية"
+  },
+  ar: {
+    "skip":"الانتقال إلى البرنامج",
+    "brand.sub":"من أجل التميّز والاستحقاق",
+    "nav.home":"الرئيسية","nav.cap":"الأفق 2035","nav.axes":"المحاور","nav.trajectoire":"المسار",
+    "cta.sign":"وقّع الميثاق","cta.read":"اكتشف الأفق 2035","cta.download":"تحميل البرنامج",
+    "prog.kicker":"برنامج حكومي · 2030-2035",
+    "prog.title":"الميثاق من أجل المغرب 2030-2035",
+    "prog.lead":"أن نجعل من المغرب، بحلول 2035، أحد أكثر بلدان منطقته أداءً وأطيبها عيشًا.",
+    "method.label":"رؤيتنا",
+    "method.vision":"مغربُ التميّز، وفيٌّ لقيمه، متطلّعٌ إلى المستقبل.",
+    "method.m1":"الاستحقاق","method.m2":"النزاهة","method.m3":"المحاسبة","method.m4":"البرهان","method.m5":"الإصغاء",
+    "cap.kicker":"الأفق 2035","cap.title":"عشرة أهداف وطنية",
+    "cap.intro":"عشرة مؤشّرات قابلة للقياس توجّه العمل (انطلاقًا من حدود 2030 نحو أهداف 2035).",
+    "cap.1":"التعليم: الدخول إلى الثلث الأول إقليميًا وخفض الانقطاع في الإعدادي إلى أقل من 2%.",
+    "cap.2":"تشغيل الشباب: خفض بطالة 15-24 سنة إلى أقل من 18% وخلق نحو 1,5 مليون منصب شغل.",
+    "cap.3":"الصحة: تغطية فعلية قرابة 100% وزيادة معدّل العمر في صحة جيّدة بسنتين إلى ثلاث.",
+    "cap.4":"النمو: 5 إلى 6% سنويًا ورفع الدخل الفردي بنحو 40%.",
+    "cap.5":"النزاهة: التقدّم بثلاثين مرتبة على الأقل في مؤشّر إدراك الفساد.",
+    "cap.6":"الماء: تأمين التزويد بشكل دائم عبر تحلية مياه البحر وإعادة الاستعمال.",
+    "cap.7":"الطاقة: أكثر من 60% من الكهرباء من مصادر متجدّدة.",
+    "cap.8":"الرقمنة: 100% من الخدمات العمومية متاحة عبر الإنترنت.",
+    "cap.9":"الفقر: تقليصه إلى النصف مع حماية اجتماعية شاملة.",
+    "cap.10":"النساء: رفع معدّل النشاط من نحو 20% إلى 35%.",
+    "avenir.kicker":"المستقبل","avenir.line":"مغربٌ سيّدٌ ومستدامٌ ومتطلّعٌ إلى المستقبل.","credits.label":"الصور",
+    "axes.kicker":"البرنامج","axes.title":"المحاور الثلاثة عشر","axes.intro":"برنامج كلاسيكي يغطّي جميع محاور تنمية البلاد.",
+    "ax1.t":"الرؤية السياسية والقيم","ax1.a":"العدالة الاجتماعية وتكافؤ الفرص","ax1.b":"السيادة والتحديث","ax1.c":"النزاهة والاستحقاق والمحاسبة",
+    "ax2.t":"التعليم والتكوين والبحث","ax2.a":"الاستحقاق: منح وداخليات التميّز","ax2.b":"الأخلاق والمواطنة ونزاهة الامتحانات","ax2.c":"تميّز التعلّمات واللغات والبحث",
+    "ax3.t":"الاقتصاد والشغل والقدرة الشرائية","ax3.a":"إصلاح الجباية ومناخ الأعمال","ax3.b":"دعم المقاولين والمقاولات الصغرى","ax3.c":"صناعة وطنية وتقليص القطاع غير المهيكل",
+    "ax4.t":"الصحة والحماية الاجتماعية","ax4.a":"تعزيز المستشفيات الجهوية","ax4.b":"التغطية الصحية والطبيب المُعالِج","ax4.c":"رقمنة مسار المريض والوقاية",
+    "ax5.t":"العدالة الاجتماعية والفوارق","ax5.a":"دعم الطبقة الوسطى والفئات الهشّة","ax5.b":"النساء والإعاقة والإدماج","ax5.c":"العالم القروي والجهات المحرومة",
+    "ax6.t":"الحكامة ومحاربة الفساد","ax6.a":"رقمنة كاملة للخدمات العمومية","ax6.b":"تبسيط إداري وآجال مُلزِمة","ax6.c":"مراقبة الصفقات ونشر مؤشّرات الأداء",
+    "ax7.t":"الأمن والعدالة والنظام العام","ax7.a":"الأمن الداخلي ومكافحة الجرائم الإلكترونية","ax7.b":"عدالة مستقلّة وأسرع","ax7.c":"الوقاية والسجون وإعادة الإدماج",
+    "ax8.t":"المجالات والعالم القروي","ax8.a":"الجهوية ودعم الجماعات","ax8.b":"البنيات التحتية والنقل العمومي","ax8.c":"الماء والصحة والمدرسة للعالم القروي",
+    "ax9.t":"البيئة والماء والطاقة والمناخ","ax9.a":"تأمين الماء (التحلية وإعادة الاستعمال)","ax9.b":"الطاقات المتجدّدة والهيدروجين الأخضر","ax9.c":"فلاحة مستدامة ومدن خضراء",
+    "ax10.t":"الرقمنة والابتكار والذكاء الاصطناعي","ax10.a":"خدمات عمومية رقمية بالكامل","ax10.b":"السيادة الرقمية والأمن السيبراني","ax10.c":"الذكاء الاصطناعي والبيانات والشركات الناشئة",
+    "ax11.t":"الثقافة والشباب والرياضة","ax11.a":"التراث والصناعات الإبداعية","ax11.b":"الرياضة للجميع ورياضة النخبة","ax11.c":"الخدمة المدنية والتزام الشباب",
+    "ax12.t":"الدبلوماسية والجالية","ax12.a":"الدبلوماسية الاقتصادية والشراكات","ax12.b":"الريادة والاندماج الإفريقي","ax12.c":"تعبئة مغاربة العالم",
+    "ax13.t":"التمويل والقابلية للتنفيذ","ax13.a":"لا وعود بلا تمويل","ax13.b":"النمو وجباية عادلة والنزاهة التي تُدِرّ موارد","ax13.c":"الأولويات والرزنامة والتقييم",
+    "traj.kicker":"الرزنامة","traj.title":"المسار 2030-2035",
+    "traj.p1.label":"المئة يوم الأولى","traj.p1.t":"براهين الثقة","traj.p1.d":"مباريات شفّافة، خدمات عبر الإنترنت، أوّل الحصائل العمومية وخطط استعجالية للمدرسة والماء والصحة.",
+    "traj.p2.label":"السنتان 1-2","traj.p2.t":"النشر","traj.p2.d":"التعليم الأوّلي القروي، الطبيب المُعالِج، الآجال المُلزِمة، تسريع تحلية المياه والطاقات المتجدّدة.",
+    "traj.p3.label":"السنوات 3-5","traj.p3.t":"التعميم","traj.p3.d":"بلوغ أهداف الأفق 2035، تعزيز السيادة المائية والطاقية، وخدمات عمومية رقمية بالكامل.",
+    "gov.kicker":"المنهجية","gov.title":"الحُكم والتمويل",
+    "gov.g1":"لوحة قيادة وطنية عمومية وحصيلة تُقدَّم للمواطنين كلّ ستّة أشهر.",
+    "gov.g2":"بيانات مفتوحة وجهوية متقدّمة ومشاركة مواطنة.",
+    "gov.g3":"تمويلٌ عبر النمو وجبايةٍ أكثر عدلًا والنزاهة التي تُدِرّ الموارد.",
+    "gov.g4":"لا وعود بلا تمويل، دَيْنٌ متحكَّم فيه، وإصلاحات متدرّجة.",
+    "ctaband.kicker":"انضمّ إلى الحركة","ctaband.title":"معًا، لنبنِ مغرب 2035.",
+    "footer.tag":"معًا، لنوقّع ميثاق المستقبل.","footer.explore":"استكشف","footer.follow":"تابعنا","footer.contact":"اتصال",
+    "footer.rights":"جميع الحقوق محفوظة.","footer.made":"من أجل مغرب التميّز",
+    "_langLabel":"Français"
+  }
+};
+
+let lang = localStorage.getItem("lepacte-lang") || "fr";
+
+function applyLang(l){
+  lang = l;
+  const dict = I18N[l];
+  document.documentElement.lang = l;
+  document.documentElement.dir = (l === "ar") ? "rtl" : "ltr";
+  document.title = (l === "ar") ? "الميثاق — برنامج حكومي 2030-2035" : "Le Pacte — Programme de gouvernement 2030-2035";
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n"); if(dict[k]!=null) el.textContent = dict[k];
+  });
+  document.getElementById("langLabel").textContent = dict["_langLabel"];
+  localStorage.setItem("lepacte-lang", l);
+}
+document.getElementById("langBtn").addEventListener("click", ()=> applyLang(lang === "fr" ? "ar" : "fr"));
+
+const header = document.getElementById("header");
+const onScroll = ()=> header.classList.toggle("scrolled", window.scrollY > 40);
+window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+const burger = document.getElementById("burger");
+burger.addEventListener("click", ()=>{
+  const open = document.body.classList.toggle("menu-open");
+  burger.setAttribute("aria-expanded", open ? "true":"false");
+});
+document.querySelectorAll("#mobileMenu a").forEach(a=> a.addEventListener("click", ()=>{
+  document.body.classList.remove("menu-open"); burger.setAttribute("aria-expanded","false");
+}));
+
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+}, {threshold:0.14, rootMargin:"0px 0px -8% 0px"});
+document.querySelectorAll(".reveal").forEach(el=> io.observe(el));
+
+applyLang(lang);
+</script>
+</body>
+</html>

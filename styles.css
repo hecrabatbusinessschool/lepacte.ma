@@ -1,0 +1,421 @@
+/* ============================================================
+   LE PACTE — page vitrine
+   Système de design : OKLCH, bleu nuit + or, motif zellige.
+   ============================================================ */
+:root{
+  /* Couleurs (OKLCH, neutres teintés vers le bleu de marque) */
+  --navy-deep: oklch(0.145 0.045 264);
+  --navy:      oklch(0.190 0.055 264);
+  --navy-2:    oklch(0.235 0.052 263);
+  --navy-3:    oklch(0.285 0.050 263);
+  --line:      oklch(0.34 0.035 263 / 0.55);
+  --line-soft: oklch(0.34 0.035 263 / 0.28);
+
+  --gold:        oklch(0.770 0.105 84);
+  --gold-bright: oklch(0.850 0.095 88);
+  --gold-deep:   oklch(0.640 0.100 70);
+
+  --ivory:   oklch(0.957 0.013 88);
+  --ivory-2: oklch(0.915 0.020 86);
+  --ink:     oklch(0.235 0.030 264);
+  --ink-soft:oklch(0.235 0.030 264 / 0.66);
+
+  --text:       oklch(0.930 0.012 262);
+  --text-muted: oklch(0.745 0.022 262);
+
+  --red:   oklch(0.560 0.170 27);
+  --green: oklch(0.560 0.110 158);
+
+  /* Échelle typographique */
+  --serif: "Marcellus", "Amiri", Georgia, serif;
+  --sans:  "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --maxw: 1200px;
+  --pad: clamp(1.25rem, 5vw, 4rem);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1); /* ease-out-quint */
+}
+
+/* Polices arabes en mode RTL */
+html[dir="rtl"]{ --serif:"Amiri", serif; --sans:"Cairo", system-ui, sans-serif; }
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  font-family:var(--sans);
+  background:var(--navy-deep);
+  color:var(--text);
+  line-height:1.6;
+  font-size:clamp(1rem, 0.97rem + 0.2vw, 1.075rem);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+
+::selection{ background:var(--gold); color:var(--navy-deep); }
+:focus-visible{ outline:2px solid var(--gold-bright); outline-offset:3px; border-radius:2px; }
+
+.skip{ position:absolute; left:-9999px; top:0; background:var(--gold); color:var(--navy-deep);
+  padding:.6rem 1rem; z-index:200; font-weight:600; }
+.skip:focus{ left:1rem; top:1rem; }
+
+/* ---- Typo utilitaires ---- */
+.kicker{
+  font-family:var(--sans);
+  font-size:.72rem; font-weight:600;
+  letter-spacing:.26em; text-transform:uppercase;
+  color:var(--gold);
+}
+html[dir="rtl"] .kicker{ letter-spacing:.08em; }
+.serif{ font-family:var(--serif); }
+
+h1,h2,h3{ font-family:var(--serif); font-weight:400; line-height:1.25; letter-spacing:0; }
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3{ letter-spacing:0; line-height:1.55; }
+
+.wrap{ max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad); }
+section{ position:relative; }
+
+/* Filet décoratif avec étoile zellige */
+.rule{ display:flex; align-items:center; gap:1rem; color:var(--gold); }
+.rule::before, .rule::after{ content:""; height:1px; background:linear-gradient(90deg,transparent,var(--gold-deep),transparent); flex:1; }
+.rule svg{ width:18px; height:18px; flex:none; }
+
+/* Motif zellige (fond) */
+.motif{
+  position:absolute; inset:0; pointer-events:none; opacity:.05; z-index:0;
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="118" height="118" viewBox="0 0 100 100"><g fill="none" stroke="%23C9A24B" stroke-width="1.1"><rect x="23" y="23" width="54" height="54"/><rect x="23" y="23" width="54" height="54" transform="rotate(45 50 50)"/><circle cx="50" cy="50" r="38"/></g></svg>');
+  background-size:118px 118px;
+}
+
+/* ============================================================
+   En-tête
+   ============================================================ */
+.header{
+  position:fixed; inset-block-start:0; inset-inline:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; padding:1.1rem var(--pad);
+  transition:background .4s var(--ease), padding .4s var(--ease), border-color .4s var(--ease);
+  border-block-end:1px solid transparent;
+}
+.header.scrolled{
+  background:oklch(0.165 0.05 264 / 0.86);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-block-end:1px solid var(--line-soft);
+  padding-block:.7rem;
+}
+.brand{ display:flex; align-items:center; gap:.7rem; }
+.brand img{ width:34px; height:auto; filter:drop-shadow(0 1px 4px oklch(0 0 0 /.4)); }
+.brand .name{ font-family:var(--serif); font-weight:400; font-size:1.36rem; letter-spacing:.14em; line-height:1; }
+html[dir="rtl"] .brand .name{ letter-spacing:0; }
+.brand .name small{ display:block; font-family:var(--sans); font-weight:500;
+  font-size:.52rem; letter-spacing:.22em; color:var(--gold); margin-top:.22rem; text-transform:uppercase; }
+html[dir="rtl"] .brand .name small{ letter-spacing:.04em; }
+
+.nav{ display:flex; align-items:center; gap:.4rem; }
+.nav a{ padding:.5rem .85rem; font-size:.86rem; font-weight:500; color:var(--text-muted);
+  border-radius:99px; transition:color .25s; }
+.nav a:hover{ color:var(--gold-bright); }
+
+.actions{ display:flex; align-items:center; gap:.5rem; }
+.lang{ display:flex; align-items:center; gap:.4rem; font-size:.8rem; font-weight:600;
+  color:var(--text-muted); padding:.5rem .85rem; min-height:44px; border:1px solid var(--line); border-radius:99px;
+  transition:color .25s, border-color .25s; }
+.lang:hover{ color:var(--gold-bright); border-color:var(--gold-deep); }
+.lang svg{ width:14px; height:14px; }
+
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  font-weight:600; font-size:.9rem; letter-spacing:.01em; border-radius:99px;
+  padding:.72rem 1.5rem; transition:transform .3s var(--ease), background .3s, color .3s, box-shadow .3s;
+  white-space:nowrap; }
+.btn-gold{ background:var(--gold); color:var(--navy-deep); box-shadow:0 6px 22px oklch(0.77 0.105 84 /.22); }
+.btn-gold:hover{ background:var(--gold-bright); transform:translateY(-2px); box-shadow:0 10px 30px oklch(0.77 0.105 84 /.34); }
+.btn-ghost{ border:1px solid var(--line); color:var(--text); }
+.btn-ghost:hover{ border-color:var(--gold); color:var(--gold-bright); transform:translateY(-2px); }
+.btn-lg{ padding:.95rem 2rem; font-size:1rem; }
+
+.burger{ display:none; width:44px; height:44px; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:12px; }
+.burger span{ display:block; width:20px; height:1.6px; background:var(--text); position:relative; transition:.3s var(--ease); }
+.burger span::before, .burger span::after{ content:""; position:absolute; left:0; width:20px; height:1.6px; background:var(--text); transition:.3s var(--ease); }
+.burger span::before{ top:-6px; } .burger span::after{ top:6px; }
+body.menu-open .burger span{ background:transparent; }
+body.menu-open .burger span::before{ transform:rotate(45deg); top:0; }
+body.menu-open .burger span::after{ transform:rotate(-45deg); top:0; }
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero{
+  min-height:100svh; display:flex; flex-direction:column; justify-content:center;
+  padding-block:7rem 2.75rem; overflow:hidden;
+  background:
+    radial-gradient(120% 80% at 50% -10%, oklch(0.27 0.07 264) 0%, transparent 55%),
+    radial-gradient(90% 60% at 85% 20%, oklch(0.24 0.06 262 /.7) 0%, transparent 60%),
+    linear-gradient(180deg, oklch(0.19 0.055 264/.90) 0%, oklch(0.16 0.05 264/.93) 55%, var(--navy-deep) 100%),
+    url('assets/morocco-casa.jpg') center 35%/cover no-repeat;
+}
+.hero .glow{ position:absolute; inset-block-start:-22vh; left:50%; transform:translateX(-50%);
+  width:min(900px,90vw); aspect-ratio:1; border-radius:50%; z-index:0;
+  background:radial-gradient(circle, oklch(0.77 0.105 84 /.16) 0%, transparent 62%); filter:blur(10px); }
+/* Grande arche en filigrane */
+.hero .arch{ position:absolute; inset-block-end:-8%; left:50%; transform:translateX(-50%);
+  width:min(760px,118vw); height:min(760px,118vw); z-index:0; opacity:.5; }
+.hero .arch svg{ width:100%; height:100%; }
+.hero .arch path{ fill:none; stroke:var(--gold-deep); stroke-width:0.4; }
+
+.hero-inner{ position:relative; z-index:2; text-align:center; max-width:980px; margin-inline:auto; }
+.hero .emblem{ width:66px; margin:0 auto 1.5rem; opacity:0; animation:rise .9s var(--ease) .05s forwards; }
+.hero .kicker{ display:inline-flex; align-items:center; gap:.7rem; margin-bottom:1.5rem;
+  opacity:0; animation:rise .9s var(--ease) .15s forwards; }
+.hero .kicker::before, .hero .kicker::after{ content:""; width:26px; height:1px; background:var(--gold-deep); }
+.hero h1{
+  font-size:clamp(2.5rem, 1.4rem + 4.4vw, 4.9rem);
+  margin-bottom:1.4rem; text-wrap:balance;
+  opacity:0; animation:rise 1s var(--ease) .25s forwards;
+}
+.hero h1 em{ font-style:normal; color:var(--gold-bright); }
+.hero .lead{ font-size:clamp(1.1rem,1rem + .55vw,1.4rem); font-family:var(--sans);
+  font-weight:400; color:var(--text); max-width:46ch; margin:0 auto 2.4rem; line-height:1.6;
+  opacity:0; animation:rise 1s var(--ease) .4s forwards; }
+.hero-cta{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+  opacity:0; animation:rise 1s var(--ease) .55s forwards; }
+
+/* Bandeau piliers */
+.pillars-strip{ position:relative; z-index:2; margin-top:clamp(1.75rem,4.5vw,3.25rem);
+  display:flex; justify-content:center; flex-wrap:wrap; gap:.4rem 0;
+  opacity:0; animation:rise 1s var(--ease) .7s forwards; }
+.pillars-strip span{ font-family:var(--sans); font-weight:600; font-size:.8rem;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--text-muted); padding:0 1.4rem;
+  position:relative; }
+html[dir="rtl"] .pillars-strip span{ letter-spacing:.04em; }
+.pillars-strip span:not(:last-child)::after{ content:""; position:absolute; inset-inline-end:0; top:50%;
+  transform:translateY(-50%); width:5px; height:5px; border-radius:50%; background:var(--gold-deep); }
+
+.scrolldown{ position:relative; z-index:2; margin:clamp(1.5rem,3.5vh,2.6rem) auto 0;
+  color:var(--text-muted); display:flex; flex-direction:column; align-items:center; gap:.5rem;
+  font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; opacity:0; animation:fade 1s ease 1.1s forwards; }
+html[dir="rtl"] .scrolldown{ letter-spacing:.08em; }
+.scrolldown .line{ width:1px; height:34px; background:linear-gradient(var(--gold),transparent); animation:drop 1.8s var(--ease) infinite; }
+
+@keyframes rise{ from{ opacity:0; transform:translateY(26px); } to{ opacity:1; transform:none; } }
+@keyframes fade{ to{ opacity:1; } }
+@keyframes drop{ 0%{ transform:scaleY(.3); transform-origin:top; opacity:.3; } 50%{ transform:scaleY(1); opacity:1; } 100%{ transform:scaleY(.3); transform-origin:bottom; opacity:.3; } }
+
+/* Écrans courts : le hero ne force plus la pleine hauteur, on masque l'indicateur de défilement */
+@media (max-height:740px){
+  .hero{ min-height:auto; padding-block:7rem 2.5rem; }
+  .hero .pillars-strip{ margin-top:clamp(1.75rem,4vh,3rem); }
+  .scrolldown{ display:none; }
+}
+
+/* ============================================================
+   Vision
+   ============================================================ */
+.vision{ position:relative; isolation:isolate; text-align:center; padding-block:clamp(6rem,13vw,10rem);
+  background:
+    linear-gradient(180deg, oklch(0.145 0.045 264/.93) 0%, oklch(0.18 0.05 264/.72) 48%, oklch(0.145 0.045 264/.96) 100%),
+    url('assets/morocco-mosque.jpg') center 28%/cover no-repeat; }
+.vision .wrap{ max-width:920px; position:relative; z-index:1; }
+.vision .mark{ font-family:var(--serif); font-size:5rem; line-height:0; color:var(--gold);
+  display:block; height:2.4rem; opacity:.6; }
+.vision h2{ font-size:clamp(1.9rem,1.2rem + 3vw,3.4rem); margin:1.4rem 0 2rem; text-wrap:balance; }
+.vision h2 em{ font-style:normal; color:var(--gold-bright); }
+.vision p{ color:oklch(0.88 0.015 262); max-width:60ch; margin-inline:auto; font-size:1.12rem; }
+
+/* Bande Chefchaouen (serment) */
+.creed{ position:relative; isolation:isolate; text-align:center; padding-block:clamp(6rem,16vw,11rem);
+  background:
+    linear-gradient(180deg, oklch(0.145 0.045 264/.84), oklch(0.17 0.052 264/.66), oklch(0.145 0.045 264/.9)),
+    url('assets/morocco-chaouen.jpg') center 42%/cover no-repeat; }
+.creed .wrap{ max-width:880px; position:relative; z-index:1; }
+.creed .kicker{ color:var(--gold-bright); }
+.creed-line{ font-size:clamp(1.75rem,1.1rem + 2.6vw,3.05rem); color:var(--ivory); margin-top:1.1rem; text-wrap:balance; }
+
+/* Crédits photos */
+.credits{ margin-top:1.4rem; font-size:.74rem; color:var(--text-muted); opacity:.72; }
+.credits a{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
+.credits a:hover{ color:var(--gold-bright); }
+
+/* ============================================================
+   Valeurs (liste éditoriale, colonne fixe)
+   ============================================================ */
+.values{ padding-block:clamp(4rem,10vw,8rem); background:
+  linear-gradient(180deg, var(--navy-deep), var(--navy) 50%, var(--navy-deep)); }
+.values-grid{ display:grid; gap:clamp(2.5rem,5vw,5rem); }
+.values-aside h2{ font-size:clamp(2rem,1.4rem + 3vw,3.2rem); margin:1rem 0 1.2rem; }
+.values-aside p{ color:var(--text-muted); max-width:34ch; }
+.values-aside .rule{ max-width:260px; margin-top:2rem; }
+
+.value{ display:grid; grid-template-columns:auto 1fr; gap:1.4rem 1.6rem; align-items:start;
+  padding-block:1.8rem; border-block-start:1px solid var(--line-soft); }
+.value:last-child{ border-block-end:1px solid var(--line-soft); }
+.value .num{ font-family:var(--serif); font-size:clamp(2.4rem,4vw,3.4rem); line-height:.9;
+  color:var(--gold); font-weight:500; }
+.value .ico{ display:none; }
+.value h3{ font-size:1.6rem; margin-bottom:.5rem; }
+.value p{ color:var(--text-muted); max-width:58ch; }
+.value:hover h3{ color:var(--gold-bright); transition:color .3s; }
+
+@media (min-width:920px){
+  .values-grid{ grid-template-columns:0.85fr 1.4fr; align-items:start; }
+  .values-aside{ position:sticky; top:7rem; }
+}
+
+/* ============================================================
+   Piliers (section ivoire)
+   ============================================================ */
+.pillars{ background:var(--ivory); color:var(--ink); padding-block:clamp(4rem,9vw,7rem); }
+.pillars .head{ text-align:center; margin-bottom:clamp(2.5rem,5vw,4rem); }
+.pillars .kicker{ color:var(--gold-deep); }
+.pillars h2{ color:var(--ink); font-size:clamp(1.9rem,1.3rem + 2.5vw,3rem); margin-top:.8rem; }
+.pillars-grid{ display:grid; grid-template-columns:repeat(2,1fr); }
+.pillar{ padding:clamp(1.6rem,3vw,2.6rem); position:relative; }
+.pillar::before{ content:""; position:absolute; inset-block:18%; inset-inline-start:0; width:1px; background:var(--ink); opacity:.14; }
+.pillar:nth-child(odd)::before{ display:none; }
+.pillar .pnum{ font-family:var(--serif); color:var(--gold-deep); font-size:1.1rem; font-weight:600; letter-spacing:.1em; }
+.pillar h3{ color:var(--ink); font-size:1.55rem; margin:.5rem 0 .6rem; }
+.pillar p{ color:var(--ink-soft); font-size:.98rem; max-width:34ch; }
+@media (min-width:760px){
+  .pillars-grid{ grid-template-columns:repeat(4,1fr); }
+  .pillar:nth-child(odd)::before{ display:block; }
+  .pillar:first-child::before{ display:none; }
+}
+
+/* ============================================================
+   Membres fondateurs
+   ============================================================ */
+.founders{ padding-block:clamp(5rem,11vw,8.5rem); background:
+  radial-gradient(85% 55% at 50% 0%, oklch(0.24 0.06 263 /.5), transparent 62%), var(--navy-deep); }
+.founders .head{ text-align:center; max-width:640px; margin:0 auto clamp(2.5rem,5vw,4rem); }
+.founders h2{ font-size:clamp(2rem,1.4rem + 3vw,3.2rem); margin:.9rem 0 1rem; }
+.founders .head p{ color:var(--text-muted); }
+.founders-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(1.6rem,3vw,2.6rem) clamp(1rem,2.5vw,2rem); }
+@media (min-width:640px){ .founders-grid{ grid-template-columns:repeat(3,1fr); } }
+@media (min-width:1000px){ .founders-grid{ grid-template-columns:repeat(4,1fr); } }
+.member{ text-align:center; }
+.member-photo{ position:relative; aspect-ratio:1/1.16; margin:0 auto .95rem; max-width:230px;
+  clip-path:url(#archClip); background:linear-gradient(180deg, var(--navy-2), var(--navy-deep)); overflow:hidden;
+  transition:transform .4s var(--ease); }
+.member:hover .member-photo{ transform:translateY(-4px); }
+.member-photo img{ width:100%; height:100%; object-fit:cover; object-position:center 18%; }
+.member-photo.is-empty::before{ content:""; position:absolute; inset:0;
+  background:url('assets/emblem-gold.png') center 40%/48% no-repeat; opacity:.15; }
+.member-photo.is-empty::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px var(--line-soft); }
+.pres-tag{ position:absolute; inset-block-end:.7rem; left:50%; transform:translateX(-50%);
+  background:var(--gold); color:var(--navy-deep); font-size:.6rem; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; padding:.32rem .85rem; border-radius:99px; white-space:nowrap; }
+.member-name{ font-family:var(--serif); font-size:1.22rem; color:var(--text); }
+.member-name.empty{ color:var(--text-muted); }
+.member-role{ margin-top:.2rem; font-size:.7rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); }
+.founders-note{ text-align:center; color:var(--text-muted); font-size:.85rem; margin-top:clamp(2.2rem,4vw,3rem); opacity:.82; }
+html[dir="rtl"] .member-role, html[dir="rtl"] .pres-tag{ letter-spacing:.03em; }
+
+/* ============================================================
+   Adhésion (parchemin ivoire)
+   ============================================================ */
+.join{ background:var(--ivory); color:var(--ink); padding-block:clamp(5rem,11vw,8.5rem); }
+.join .motif{ opacity:.04; background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="118" height="118" viewBox="0 0 100 100"><g fill="none" stroke="%230A1B3D" stroke-width="1.1"><rect x="23" y="23" width="54" height="54"/><rect x="23" y="23" width="54" height="54" transform="rotate(45 50 50)"/><circle cx="50" cy="50" r="38"/></g></svg>'); }
+.join .wrap{ max-width:720px; position:relative; z-index:1; }
+.join .head{ text-align:center; margin-bottom:clamp(2.2rem,4vw,3.2rem); }
+.join .kicker{ color:var(--gold-deep); }
+.join h2{ color:var(--ink); font-size:clamp(2rem,1.4rem + 3vw,3.3rem); margin:.9rem 0 1rem; text-wrap:balance; }
+.join h2 em{ font-style:normal; color:var(--gold-deep); }
+.join .head p{ color:var(--ink-soft); max-width:54ch; margin-inline:auto; }
+
+.form{ display:grid; gap:1.4rem; }
+.frow{ display:grid; gap:1.4rem; }
+@media (min-width:620px){ .frow{ grid-template-columns:1fr 1fr; } }
+.field{ display:flex; flex-direction:column; gap:.45rem; }
+.field label{ font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); }
+.field input, .field textarea{
+  font:inherit; color:var(--ink); background:oklch(1 0 0 /.5);
+  border:1px solid oklch(0.235 0.03 264 /.22); border-radius:10px; padding:.85rem 1rem;
+  transition:border-color .25s, box-shadow .25s, background .25s; width:100%; }
+.field textarea{ resize:vertical; min-height:120px; }
+.field input:focus, .field textarea:focus{ outline:none; border-color:var(--gold-deep);
+  box-shadow:0 0 0 3px oklch(0.64 0.10 70 /.18); background:oklch(1 0 0 /.85); }
+.field .err{ font-size:.78rem; color:var(--red); min-height:1em; font-weight:500; }
+.field input[aria-invalid="true"], .field textarea[aria-invalid="true"]{ border-color:var(--red); }
+.hp{ position:absolute; left:-9999px; opacity:0; height:0; }
+
+.join .submit-row{ display:flex; flex-direction:column; align-items:center; gap:1rem; margin-top:.6rem; }
+.join .submit-row .btn-gold{ box-shadow:0 8px 26px oklch(0.64 0.10 70 /.28); }
+.privacy{ font-size:.8rem; color:var(--ink-soft); text-align:center; max-width:48ch; }
+
+/* État succès */
+.form-success{ display:none; text-align:center; padding:1rem 0; }
+.form-success.show{ display:block; animation:rise .7s var(--ease); }
+.form-success .seal{ width:84px; margin:0 auto 1.4rem; }
+.form-success h3{ color:var(--ink); font-size:1.9rem; margin-bottom:.6rem; }
+.form-success p{ color:var(--ink-soft); max-width:42ch; margin-inline:auto; }
+
+/* ============================================================
+   Pied de page
+   ============================================================ */
+.footer{ background:var(--navy-deep); padding-block:clamp(3.5rem,7vw,5rem) 2.5rem; border-block-start:1px solid var(--line-soft); }
+.footer-top{ display:grid; gap:2.5rem; align-items:start; }
+.footer .brand img{ width:48px; }
+.footer .brand .name{ font-size:1.5rem; }
+.foot-tag{ color:var(--text-muted); margin-top:1.2rem; max-width:34ch; font-family:var(--serif); font-style:normal; font-size:1.2rem; line-height:1.4; }
+.foot-cols{ display:flex; gap:clamp(2rem,6vw,4rem); flex-wrap:wrap; }
+.foot-col h4{ font-family:var(--sans); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; font-weight:600; }
+html[dir="rtl"] .foot-col h4{ letter-spacing:.05em; }
+.foot-col a{ display:block; color:var(--text-muted); padding:.3rem 0; font-size:.92rem; transition:color .25s; }
+.foot-col a:hover{ color:var(--gold-bright); }
+.socials{ display:flex; gap:.6rem; margin-top:.3rem; }
+.socials a{ width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--line); border-radius:12px; color:var(--text-muted); transition:.25s; }
+.socials a:hover{ color:var(--gold-bright); border-color:var(--gold-deep); transform:translateY(-2px); }
+.socials svg{ width:18px; height:18px; }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+  margin-top:clamp(2.5rem,5vw,3.5rem); padding-top:1.8rem; border-top:1px solid var(--line-soft);
+  color:var(--text-muted); font-size:.82rem; }
+.flag{ display:inline-flex; align-items:center; gap:.5rem; }
+.flag .strip{ width:22px; height:15px; border-radius:3px; background:var(--red); display:inline-flex; align-items:center; justify-content:center; }
+.flag .strip svg{ width:11px; height:11px; color:var(--green); }
+@media (min-width:880px){
+  .footer-top{ grid-template-columns:1.2fr 1.6fr; }
+}
+
+/* ============================================================
+   Reveal au scroll
+   ============================================================ */
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+.reveal.in{ opacity:1; transform:none; }
+.reveal[data-d="1"]{ transition-delay:.08s; }
+.reveal[data-d="2"]{ transition-delay:.16s; }
+.reveal[data-d="3"]{ transition-delay:.24s; }
+.reveal[data-d="4"]{ transition-delay:.32s; }
+.reveal[data-d="5"]{ transition-delay:.40s; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  .hero .emblem,.hero .kicker,.hero h1,.hero .lead,.hero-cta,.pillars-strip,.scrolldown{ animation:none; opacity:1; }
+  .scrolldown .line{ animation:none; }
+}
+
+/* ============================================================
+   Menu mobile + responsive
+   ============================================================ */
+.mobile-menu{ position:fixed; inset:0; z-index:99; background:oklch(0.155 0.05 264 /.98);
+  backdrop-filter:blur(8px); display:flex; flex-direction:column; justify-content:center; align-items:center; gap:.4rem;
+  opacity:0; visibility:hidden; transition:opacity .4s var(--ease), visibility .4s; }
+body.menu-open .mobile-menu{ opacity:1; visibility:visible; }
+.mobile-menu a{ font-family:var(--serif); font-size:1.9rem; color:var(--text); padding:.5rem; transition:color .25s; }
+.mobile-menu a:hover{ color:var(--gold-bright); }
+.mobile-menu .btn{ margin-top:1.4rem; }
+.mobile-menu .btn-gold, .mobile-menu .btn-gold:hover{ color:var(--navy-deep); }
+
+@media (max-width:980px){
+  .nav{ display:none; }
+  .header .actions .btn-gold{ display:none; }
+  .burger{ display:flex; }
+}
+@media (min-width:981px){ .mobile-menu{ display:none; } }
+
+@media (max-width:560px){
+  .brand .name small{ display:none; }
+  .brand .name{ font-size:1.3rem; letter-spacing:.12em; }
+  .brand img{ width:30px; }
+}
