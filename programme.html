@@ -59,9 +59,14 @@
 .method-band{ text-align:center; padding-block:clamp(3.5rem,7vw,5.5rem); }
 .method-vision{ font-family:var(--serif); font-size:clamp(1.6rem,1.2rem + 2vw,2.6rem); color:var(--ivory);
   max-width:24ch; margin:.7rem auto 1.8rem; line-height:1.25; text-wrap:balance; }
-.method-chips{ display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; }
-.method-chips span{ border:1px solid var(--line); border-radius:99px; padding:.5rem 1.1rem; font-size:.82rem;
-  color:var(--text-muted); letter-spacing:.04em; }
+.method-rule{ max-width:300px; margin:1.9rem auto 1.7rem; }
+.method-rule svg{ width:16px; height:16px; }
+.method-chips{ display:flex; flex-wrap:wrap; justify-content:center; gap:.55rem 0; }
+.method-chips span{ font-weight:600; font-size:.8rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--text-muted); padding:0 1.3rem; position:relative; }
+html[dir="rtl"] .method-chips span{ letter-spacing:.04em; }
+.method-chips span:not(:last-child)::after{ content:""; position:absolute; inset-inline-end:0; top:50%;
+  transform:translateY(-50%); width:4px; height:4px; border-radius:50%; background:var(--gold-deep); }
 
 /* Cap 2035 (réutilise .value) */
 .cap-grid{ display:grid; gap:0 clamp(2rem,4vw,3.5rem); }
@@ -173,7 +178,8 @@ html[dir="rtl"] .phase .ph-label{ letter-spacing:.03em; }
   <div class="wrap">
     <p class="kicker reveal" data-i18n="method.label">Notre vision</p>
     <p class="method-vision reveal" data-d="1" data-i18n="method.vision">Un Maroc d'excellence, fidèle à ses valeurs, tourné vers l'avenir.</p>
-    <div class="method-chips reveal" data-d="2">
+    <div class="rule method-rule reveal" data-d="2" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l2.2 6.8H21l-5.5 4 2.1 6.8L12 15.6 6.4 19.6l2.1-6.8L3 8.8h6.8z"/></svg></div>
+    <div class="method-chips reveal" data-d="3">
       <span data-i18n="method.m1">Mérite</span>
       <span data-i18n="method.m2">Intégrité</span>
       <span data-i18n="method.m3">Redevabilité</span>
