@@ -3,12 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+/* Applique la langue mémorisée avant le premier rendu (évite le flash LTR pour l'arabe). */
+(function(){try{var l=localStorage.getItem("lepacte-lang")||"fr";document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";}catch(e){}})();
+</script>
 <title>Le Pacte — Programme de gouvernement 2030-2035</title>
-<meta name="description" content="Le programme de gouvernement du Pacte pour le Maroc 2030-2035 : vision, Cap 2035, sept chantiers de transformation, trajectoire et impact." />
+<meta name="description" content="Le programme de gouvernement du Pacte pour le Maroc 2030-2035 : vision, Cap 2035, treize axes de transformation, trajectoire et impact." />
+<meta name="theme-color" content="#03091d" />
+<link rel="canonical" href="https://hecrabatbusinessschool.github.io/lepacte.ma/programme.html" />
 <meta property="og:title" content="Le Pacte — Programme de gouvernement 2030-2035" />
-<meta property="og:description" content="Sept chantiers pour faire du Maroc l'un des pays les plus performants et agréables à vivre d'ici 2035." />
+<meta property="og:description" content="Treize axes pour faire du Maroc l'un des pays les plus performants et agréables à vivre d'ici 2035." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://hecrabatbusinessschool.github.io/lepacte.ma/programme.html" />
+<meta property="og:site_name" content="Le Pacte" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="ar_MA" />
+<meta property="og:image" content="https://hecrabatbusinessschool.github.io/lepacte.ma/assets/morocco-rabat.jpg" />
+<meta property="og:image:width" content="1500" />
+<meta property="og:image:height" content="1121" />
+<meta property="og:image:alt" content="Rabat, Maroc" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preload" as="image" href="assets/morocco-rabat.jpg" fetchpriority="high" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Hanken+Grotesk:wght@400;500;600;700&family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -60,20 +76,19 @@
 .avenir-band .wrap{ position:relative; z-index:1; max-width:820px; }
 .avenir-band .kicker{ color:var(--gold-bright); }
 
-/* Chantiers */
-.chantiers-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(1.2rem,2.4vw,1.8rem); }
-.chantier-card{ background:linear-gradient(180deg, var(--navy-2), var(--navy-deep)); border:1px solid var(--line-soft);
-  border-radius:16px; padding:clamp(1.5rem,3vw,2.2rem); transition:transform .35s var(--ease), border-color .35s; }
-.chantier-card:hover{ transform:translateY(-4px); border-color:var(--gold-deep); }
-.chantier-card .pilier{ font-size:.7rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
-html[dir="rtl"] .chantier-card .pilier{ letter-spacing:.03em; }
-.chantier-card .axis-num{ font-family:var(--serif); font-size:1.7rem; color:var(--gold); line-height:1; display:block; }
-.chantier-card h3{ font-size:1.5rem; margin:.5rem 0 .7rem; }
-.chantier-card .cap{ color:var(--text); font-family:var(--serif); font-size:1.12rem; margin-bottom:1rem; line-height:1.35; }
-.chantier-card ul{ list-style:none; display:grid; gap:.55rem; }
-.chantier-card li{ color:var(--text-muted); font-size:.93rem; padding-inline-start:1.1rem; position:relative; }
-.chantier-card li::before{ content:""; position:absolute; inset-inline-start:0; inset-block-start:.55em;
-  width:5px; height:5px; border-radius:50%; background:var(--gold-deep); }
+/* Axes (liste éditoriale filetée, deux colonnes) */
+.chantiers-grid{ display:grid; gap:0 clamp(2.5rem,5vw,4.5rem); border-block-end:1px solid var(--line-soft); }
+@media (min-width:880px){ .chantiers-grid{ grid-template-columns:1fr 1fr; } }
+.chantier-card{ display:grid; grid-template-columns:auto 1fr; column-gap:clamp(1.1rem,2.5vw,1.6rem); row-gap:.45rem;
+  align-items:start; padding-block:1.55rem; border-block-start:1px solid var(--line-soft); }
+.chantier-card .axis-num{ font-family:var(--serif); font-size:clamp(1.7rem,2.6vw,2.2rem); color:var(--gold);
+  line-height:1; grid-row:1 / span 2; }
+.chantier-card h3{ font-size:1.32rem; line-height:1.3; transition:color .3s; }
+.chantier-card:hover h3{ color:var(--gold-bright); }
+.chantier-card ul{ list-style:none; grid-column:2; display:flex; flex-wrap:wrap; align-items:baseline; }
+.chantier-card li{ color:var(--text-muted); font-size:.9rem; line-height:1.55; }
+.chantier-card li:not(:first-child)::before{ content:"·"; color:var(--gold-deep); margin-inline-end:.55rem; }
+.chantier-card li{ margin-inline-end:.55rem; }
 
 /* Trajectoire */
 .timeline{ display:grid; gap:clamp(1.6rem,3vw,2.2rem); }
@@ -109,7 +124,7 @@ html[dir="rtl"] .phase .ph-label{ letter-spacing:.03em; }
 <!-- ============ EN-TÊTE ============ -->
 <header class="header" id="header">
   <a class="brand" href="index.html" aria-label="Le Pacte, accueil">
-    <img src="assets/emblem-gold.png" alt="" />
+    <img src="assets/emblem-gold.png" alt="" width="232" height="216" />
     <span class="name">LE PACTE<small data-i18n="brand.sub">De l'excellence et du mérite</small></span>
   </a>
   <nav class="nav" aria-label="Navigation principale">
@@ -145,7 +160,7 @@ html[dir="rtl"] .phase .ph-label{ letter-spacing:.03em; }
   <div class="wrap">
     <span class="kicker" data-i18n="prog.kicker">Programme de gouvernement · 2030-2035</span>
     <h1 data-i18n="prog.title">Le Pacte pour le Maroc 2030-2035</h1>
-    <p class="lead" data-i18n="prog.lead">Faire du Maroc, d'ici 2035, l'un des pays les plus performants et les plus agréables à vivre de sa région.</p>
+    <p class="lead" data-i18n="prog.lead">Une décennie pour faire du Maroc l'un des pays les plus performants et les plus agréables à vivre de sa région : une trajectoire chiffrée, financée, évaluée.</p>
     <div class="prog-cta">
       <a href="#cap" class="btn btn-gold btn-lg" data-i18n="cta.read">Découvrir le Cap 2035</a>
       <a href="docs/programme-le-pacte-2030-2035.pdf" download class="btn btn-ghost btn-lg" data-i18n="cta.download">Télécharger le programme</a>
@@ -174,7 +189,7 @@ html[dir="rtl"] .phase .ph-label{ letter-spacing:.03em; }
     <div class="head">
       <p class="kicker reveal" data-i18n="cap.kicker">Le Cap 2035</p>
       <h2 class="reveal" data-d="1" data-i18n="cap.title">Dix objectifs nationaux</h2>
-      <p class="reveal" data-d="2" data-i18n="cap.intro">Dix repères mesurables guident l'action (point de départ vers 2030, cible 2035).</p>
+      <p class="reveal" data-d="2" data-i18n="cap.intro">Dix repères mesurables, rendus publics et suivis chaque année : voilà le contrat. Point de départ vers 2030, cible 2035.</p>
     </div>
     <div class="cap-grid">
       <div class="value reveal"><span class="num">01</span><div><p data-i18n="cap.1">Éducation : entrer dans le premier tiers régional et ramener l'abandon au collège sous 2%.</p></div></div>
@@ -195,7 +210,7 @@ html[dir="rtl"] .phase .ph-label{ letter-spacing:.03em; }
 <section class="avenir-band" id="avenir">
   <div class="wrap">
     <p class="kicker reveal" data-i18n="avenir.kicker">L'avenir</p>
-    <p class="creed-line serif reveal" data-d="1" data-i18n="avenir.line">Un Maroc souverain, durable et tourné vers l'avenir.</p>
+    <p class="creed-line serif reveal" data-d="1" data-i18n="avenir.line">Un Maroc souverain de son eau, de son énergie et de son destin.</p>
   </div>
 </section>
 
@@ -205,7 +220,7 @@ html[dir="rtl"] .phase .ph-label{ letter-spacing:.03em; }
     <div class="head">
       <p class="kicker reveal" data-i18n="axes.kicker">Le programme</p>
       <h2 class="reveal" data-d="1" data-i18n="axes.title">Les treize axes</h2>
-      <p class="reveal" data-d="2" data-i18n="axes.intro">Un programme classique couvrant tous les axes de développement du pays.</p>
+      <p class="reveal" data-d="2" data-i18n="axes.intro">Treize axes qui couvrent tout le champ de l'action publique, de l'école au climat, de la santé à la sécurité. Rien n'est laissé au hasard, rien n'est promis sans être financé.</p>
     </div>
     <div class="chantiers-grid">
       <article class="chantier-card reveal"><span class="axis-num">01</span><h3 data-i18n="ax1.t">Vision politique et valeurs</h3><ul><li data-i18n="ax1.a">Justice sociale et égalité des chances</li><li data-i18n="ax1.b">Souveraineté et modernisation</li><li data-i18n="ax1.c">Intégrité, mérite et redevabilité</li></ul></article>
@@ -285,7 +300,7 @@ html[dir="rtl"] .phase .ph-label{ letter-spacing:.03em; }
   <div class="wrap footer-top">
     <div>
       <a class="brand" href="index.html" aria-label="Le Pacte">
-        <img src="assets/emblem-gold.png" alt="" />
+        <img src="assets/emblem-gold.png" alt="" width="232" height="216" loading="lazy" decoding="async" />
         <span class="name">LE PACTE<small data-i18n="brand.sub">De l'excellence et du mérite</small></span>
       </a>
       <p class="foot-tag" data-i18n="footer.tag">Ensemble, signons le pacte de l'avenir.</p>
@@ -318,7 +333,7 @@ html[dir="rtl"] .phase .ph-label{ letter-spacing:.03em; }
     <span>© 2026 Le Pacte. <span data-i18n="footer.rights">Tous droits réservés.</span></span>
     <span class="flag">
       <span data-i18n="footer.made">Pour un Maroc d'excellence</span>
-      <span class="strip" aria-label="Maroc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.5 7.6H22l-6 4.5 2.3 7.4L12 18l-6.3 4.5L8 15.1 2 10.6h7.5z"/></svg></span>
+      <span class="strip" role="img" aria-label="Maroc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.5 7.6H22l-6 4.5 2.3 7.4L12 18l-6.3 4.5L8 15.1 2 10.6h7.5z"/></svg></span>
     </span>
   </div>
   <div class="wrap credits">
@@ -335,12 +350,12 @@ const I18N = {
     "cta.sign":"Signer le pacte","cta.read":"Découvrir le Cap 2035","cta.download":"Télécharger le programme",
     "prog.kicker":"Programme de gouvernement · 2030-2035",
     "prog.title":"Le Pacte pour le Maroc 2030-2035",
-    "prog.lead":"Faire du Maroc, d'ici 2035, l'un des pays les plus performants et les plus agréables à vivre de sa région.",
+    "prog.lead":"Une décennie pour faire du Maroc l'un des pays les plus performants et les plus agréables à vivre de sa région : une trajectoire chiffrée, financée, évaluée.",
     "method.label":"Notre vision",
     "method.vision":"Un Maroc d'excellence, fidèle à ses valeurs, tourné vers l'avenir.",
     "method.m1":"Mérite","method.m2":"Intégrité","method.m3":"Redevabilité","method.m4":"Preuve","method.m5":"Écoute",
     "cap.kicker":"Le Cap 2035","cap.title":"Dix objectifs nationaux",
-    "cap.intro":"Dix repères mesurables guident l'action (point de départ vers 2030, cible 2035).",
+    "cap.intro":"Dix repères mesurables, rendus publics et suivis chaque année : voilà le contrat. Point de départ vers 2030, cible 2035.",
     "cap.1":"Éducation : entrer dans le premier tiers régional et ramener l'abandon au collège sous 2%.",
     "cap.2":"Emploi des jeunes : chômage des 15-24 ans sous 18% et environ 1,5 million d'emplois.",
     "cap.3":"Santé : couverture effective proche de 100% et 2 à 3 ans d'espérance de vie en bonne santé en plus.",
@@ -351,8 +366,8 @@ const I18N = {
     "cap.8":"Numérique : 100% des démarches publiques accessibles en ligne.",
     "cap.9":"Pauvreté : réduite de moitié, avec une protection sociale universelle.",
     "cap.10":"Femmes : taux d'activité porté d'environ 20% vers 35%.",
-    "avenir.kicker":"L'avenir","avenir.line":"Un Maroc souverain, durable et tourné vers l'avenir.","credits.label":"Photographies",
-    "axes.kicker":"Le programme","axes.title":"Les treize axes","axes.intro":"Un programme classique couvrant tous les axes de développement du pays.",
+    "avenir.kicker":"L'avenir","avenir.line":"Un Maroc souverain de son eau, de son énergie et de son destin.","credits.label":"Photographies",
+    "axes.kicker":"Le programme","axes.title":"Les treize axes","axes.intro":"Treize axes qui couvrent tout le champ de l'action publique, de l'école au climat, de la santé à la sécurité. Rien n'est laissé au hasard, rien n'est promis sans être financé.",
     "ax1.t":"Vision politique et valeurs","ax1.a":"Justice sociale et égalité des chances","ax1.b":"Souveraineté et modernisation","ax1.c":"Intégrité, mérite et redevabilité",
     "ax2.t":"Éducation, formation et recherche","ax2.a":"Mérite : bourses et internats d'excellence","ax2.b":"Éthique, civisme et intégrité des examens","ax2.c":"Excellence des apprentissages, langues et recherche",
     "ax3.t":"Économie, emploi et pouvoir d'achat","ax3.a":"Fiscalité réformée et climat des affaires","ax3.b":"Soutien aux entrepreneurs et aux PME","ax3.c":"Industrie nationale et recul de l'informel",
@@ -378,6 +393,8 @@ const I18N = {
     "ctaband.kicker":"Rejoignez le mouvement","ctaband.title":"Ensemble, bâtissons le Maroc de 2035.",
     "footer.tag":"Ensemble, signons le pacte de l'avenir.","footer.explore":"Explorer","footer.follow":"Suivre","footer.contact":"Contact",
     "footer.rights":"Tous droits réservés.","footer.made":"Pour un Maroc d'excellence",
+    "a11y.lang":"Basculer en arabe","a11y.menu":"Menu",
+    "meta.desc":"Le programme de gouvernement du Pacte pour le Maroc 2030-2035 : vision, Cap 2035, treize axes de transformation, trajectoire et impact.",
     "_langLabel":"العربية"
   },
   ar: {
@@ -387,12 +404,12 @@ const I18N = {
     "cta.sign":"وقّع الميثاق","cta.read":"اكتشف الأفق 2035","cta.download":"تحميل البرنامج",
     "prog.kicker":"برنامج حكومي · 2030-2035",
     "prog.title":"الميثاق من أجل المغرب 2030-2035",
-    "prog.lead":"أن نجعل من المغرب، بحلول 2035، أحد أكثر بلدان منطقته أداءً وأطيبها عيشًا.",
+    "prog.lead":"عقدٌ من الزمن لنجعل من المغرب أحد أكثر بلدان منطقته أداءً وأطيبها عيشًا: مسارٌ مضبوطٌ بالأرقام، مموَّلٌ، وخاضعٌ للتقييم.",
     "method.label":"رؤيتنا",
     "method.vision":"مغربُ التميّز، وفيٌّ لقيمه، متطلّعٌ إلى المستقبل.",
     "method.m1":"الاستحقاق","method.m2":"النزاهة","method.m3":"المحاسبة","method.m4":"البرهان","method.m5":"الإصغاء",
     "cap.kicker":"الأفق 2035","cap.title":"عشرة أهداف وطنية",
-    "cap.intro":"عشرة مؤشّرات قابلة للقياس توجّه العمل (انطلاقًا من حدود 2030 نحو أهداف 2035).",
+    "cap.intro":"عشرة مؤشّرات قابلة للقياس، تُنشَر وتُتابَع كلّ سنة: هذا هو العقد. الانطلاق في حدود 2030، والهدف 2035.",
     "cap.1":"التعليم: الدخول إلى الثلث الأول إقليميًا وخفض الانقطاع في الإعدادي إلى أقل من 2%.",
     "cap.2":"تشغيل الشباب: خفض بطالة 15-24 سنة إلى أقل من 18% وخلق نحو 1,5 مليون منصب شغل.",
     "cap.3":"الصحة: تغطية فعلية قرابة 100% وزيادة معدّل العمر في صحة جيّدة بسنتين إلى ثلاث.",
@@ -403,8 +420,8 @@ const I18N = {
     "cap.8":"الرقمنة: 100% من الخدمات العمومية متاحة عبر الإنترنت.",
     "cap.9":"الفقر: تقليصه إلى النصف مع حماية اجتماعية شاملة.",
     "cap.10":"النساء: رفع معدّل النشاط من نحو 20% إلى 35%.",
-    "avenir.kicker":"المستقبل","avenir.line":"مغربٌ سيّدٌ ومستدامٌ ومتطلّعٌ إلى المستقبل.","credits.label":"الصور",
-    "axes.kicker":"البرنامج","axes.title":"المحاور الثلاثة عشر","axes.intro":"برنامج كلاسيكي يغطّي جميع محاور تنمية البلاد.",
+    "avenir.kicker":"المستقبل","avenir.line":"مغربٌ سيّدٌ على مائه وطاقته ومصيره.","credits.label":"الصور",
+    "axes.kicker":"البرنامج","axes.title":"المحاور الثلاثة عشر","axes.intro":"ثلاثة عشر محورًا تغطّي حقل العمل العمومي كلّه، من المدرسة إلى المناخ ومن الصحة إلى الأمن. لا شيء يُترَك للصدفة، ولا وعدَ بلا تمويل.",
     "ax1.t":"الرؤية السياسية والقيم","ax1.a":"العدالة الاجتماعية وتكافؤ الفرص","ax1.b":"السيادة والتحديث","ax1.c":"النزاهة والاستحقاق والمحاسبة",
     "ax2.t":"التعليم والتكوين والبحث","ax2.a":"الاستحقاق: منح وداخليات التميّز","ax2.b":"الأخلاق والمواطنة ونزاهة الامتحانات","ax2.c":"تميّز التعلّمات واللغات والبحث",
     "ax3.t":"الاقتصاد والشغل والقدرة الشرائية","ax3.a":"إصلاح الجباية ومناخ الأعمال","ax3.b":"دعم المقاولين والمقاولات الصغرى","ax3.c":"صناعة وطنية وتقليص القطاع غير المهيكل",
@@ -430,6 +447,8 @@ const I18N = {
     "ctaband.kicker":"انضمّ إلى الحركة","ctaband.title":"معًا، لنبنِ مغرب 2035.",
     "footer.tag":"معًا، لنوقّع ميثاق المستقبل.","footer.explore":"استكشف","footer.follow":"تابعنا","footer.contact":"اتصال",
     "footer.rights":"جميع الحقوق محفوظة.","footer.made":"من أجل مغرب التميّز",
+    "a11y.lang":"التبديل إلى الفرنسية","a11y.menu":"القائمة",
+    "meta.desc":"برنامج الميثاق الحكومي للمغرب 2030-2035: الرؤية، الأفق 2035، ثلاثة عشر محورًا للتحوّل، المسار والأثر.",
     "_langLabel":"Français"
   }
 };
@@ -445,7 +464,12 @@ function applyLang(l){
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const k = el.getAttribute("data-i18n"); if(dict[k]!=null) el.textContent = dict[k];
   });
-  document.getElementById("langLabel").textContent = dict["_langLabel"];
+  const langLabel = document.getElementById("langLabel");
+  langLabel.textContent = dict["_langLabel"];
+  langLabel.setAttribute("lang", l === "fr" ? "ar" : "fr");
+  document.getElementById("langBtn").setAttribute("aria-label", dict["a11y.lang"]);
+  document.getElementById("burger").setAttribute("aria-label", dict["a11y.menu"]);
+  document.querySelector('meta[name="description"]').setAttribute("content", dict["meta.desc"]);
   localStorage.setItem("lepacte-lang", l);
 }
 document.getElementById("langBtn").addEventListener("click", ()=> applyLang(lang === "fr" ? "ar" : "fr"));
@@ -462,6 +486,11 @@ burger.addEventListener("click", ()=>{
 document.querySelectorAll("#mobileMenu a").forEach(a=> a.addEventListener("click", ()=>{
   document.body.classList.remove("menu-open"); burger.setAttribute("aria-expanded","false");
 }));
+window.addEventListener("keydown", (e)=>{
+  if(e.key === "Escape" && document.body.classList.contains("menu-open")){
+    document.body.classList.remove("menu-open"); burger.setAttribute("aria-expanded","false"); burger.focus();
+  }
+});
 
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hecrabatbusinessschool.github.io/lepacte.ma/sitemap.xml

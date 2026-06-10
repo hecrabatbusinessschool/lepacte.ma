@@ -3,12 +3,42 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+/* Applique la langue mémorisée avant le premier rendu (évite le flash LTR pour l'arabe). */
+(function(){try{var l=localStorage.getItem("lepacte-lang")||"fr";document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";}catch(e){}})();
+</script>
 <title>LE PACTE — De l'excellence et du mérite</title>
 <meta name="description" content="Le Pacte, parti politique pour un Maroc fort, juste et ambitieux. Bâtir le Maroc par l'excellence, l'éducation et le civisme." />
+<meta name="theme-color" content="#03091d" />
+<link rel="canonical" href="https://hecrabatbusinessschool.github.io/lepacte.ma/" />
 <meta property="og:title" content="LE PACTE — De l'excellence et du mérite" />
-<meta property="og:description" content="Un pacte pour un Maroc fort, juste et ambitieux." />
+<meta property="og:description" content="Un pacte solennel pour un Maroc fort, juste et ambitieux, digne de son histoire et de sa jeunesse." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://hecrabatbusinessschool.github.io/lepacte.ma/" />
+<meta property="og:site_name" content="Le Pacte" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="ar_MA" />
+<meta property="og:image" content="https://hecrabatbusinessschool.github.io/lepacte.ma/assets/morocco-casa.jpg" />
+<meta property="og:image:width" content="1600" />
+<meta property="og:image:height" content="782" />
+<meta property="og:image:alt" content="Casablanca, Maroc" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preload" as="image" href="assets/morocco-casa.jpg" fetchpriority="high" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Le Pacte",
+  "alternateName": "الميثاق",
+  "slogan": "De l'excellence et du mérite",
+  "url": "https://hecrabatbusinessschool.github.io/lepacte.ma/",
+  "logo": "https://hecrabatbusinessschool.github.io/lepacte.ma/assets/emblem-gold.png",
+  "email": "contact@lepacte.ma",
+  "founder": { "@type": "Person", "name": "Hamza El Kouhen" },
+  "foundingLocation": { "@type": "Country", "name": "Maroc" }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Hanken+Grotesk:wght@400;500;600;700&family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -29,7 +59,7 @@
 <!-- ============ EN-TÊTE ============ -->
 <header class="header" id="header">
   <a class="brand" href="#top" aria-label="Le Pacte, accueil">
-    <img src="assets/emblem-gold.png" alt="" />
+    <img src="assets/emblem-gold.png" alt="" width="232" height="216" />
     <span class="name">LE PACTE<small data-i18n="brand.sub">De l'excellence et du mérite</small></span>
   </a>
   <nav class="nav" aria-label="Navigation principale">
@@ -55,7 +85,7 @@
   <a href="#valeurs" data-i18n="nav.values">Valeurs</a>
   <a href="#piliers" data-i18n="nav.pillars">Piliers</a>
   <a href="#fondateurs" data-i18n="nav.chef">Fondateurs</a>
-    <a href="programme.html" data-i18n="nav.programme">Programme</a>
+  <a href="programme.html" data-i18n="nav.programme">Programme</a>
   <a href="#join" class="btn btn-gold btn-lg" data-i18n="cta.sign">Signer le pacte</a>
 </div>
 
@@ -67,10 +97,10 @@
     <svg viewBox="0 0 100 100" fill="none"><path d="M2,100 L2,46 Q2,4 50,4 Q98,4 98,46 L98,100"/></svg>
   </div>
   <div class="hero-inner wrap">
-    <img class="emblem" src="assets/emblem-gold.png" alt="Emblème du Pacte" />
+    <img class="emblem" src="assets/emblem-gold.png" alt="Emblème du Pacte" width="232" height="216" />
     <span class="kicker" data-i18n="hero.kicker">Parti politique · Maroc</span>
     <h1 data-i18n-html="hero.h1">Bâtir le Maroc par <em>l'excellence</em>, l'éducation et le civisme.</h1>
-    <p class="lead" data-i18n="hero.lead">Un pacte pour un Maroc fort, juste et ambitieux.</p>
+    <p class="lead" data-i18n="hero.lead">Un pacte solennel pour un Maroc fort, juste et ambitieux, digne de son histoire et de sa jeunesse.</p>
     <div class="hero-cta">
       <a href="#join" class="btn btn-gold btn-lg" data-i18n="cta.sign">Signer le pacte</a>
       <a href="#vision" class="btn btn-ghost btn-lg" data-i18n="cta.discover">Découvrir le mouvement</a>
@@ -94,7 +124,7 @@
     <span class="mark serif reveal" aria-hidden="true">“</span>
     <p class="kicker reveal" data-i18n="vision.kicker">Notre vision</p>
     <h2 class="reveal" data-d="1" data-i18n-html="vision.title">Un Maroc d'<em>excellence</em>, fidèle à ses valeurs, tourné vers l'avenir.</h2>
-    <p class="reveal" data-d="2" data-i18n="vision.body">Le Pacte est un engagement entre les Marocains et leur avenir : faire de la compétence, de l'intégrité et du mérite les fondations d'une nation forte, juste et solidaire.</p>
+    <p class="reveal" data-d="2" data-i18n="vision.body">Le Pacte est un engagement entre les Marocains et leur avenir : faire de la compétence, de l'intégrité et du mérite les fondations d'une nation forte, juste et solidaire. Aucune fatalité ne pèse sur ce pays : ce que le Maroc a accompli hier par le courage, il l'accomplira demain par l'excellence.</p>
   </div>
 </section>
 
@@ -104,15 +134,15 @@
     <div class="values-aside">
       <p class="kicker reveal" data-i18n="values.kicker">Cinq engagements</p>
       <h2 class="reveal" data-d="1" data-i18n="values.title">Nos valeurs, notre engagement</h2>
-      <p class="reveal" data-d="2" data-i18n="values.intro">Cinq principes guident chacune de nos décisions et chacun de nos combats pour le Maroc.</p>
+      <p class="reveal" data-d="2" data-i18n="values.intro">Cinq principes, gravés au cœur de notre charte, guident chacune de nos décisions et chacun de nos combats pour le Maroc.</p>
       <div class="rule reveal" data-d="3" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l2.2 6.8H21l-5.5 4 2.1 6.8L12 15.6 6.4 19.6l2.1-6.8L3 8.8h6.8z"/></svg></div>
     </div>
     <div class="values-list">
-      <div class="value reveal"><span class="num">01</span><div><h3 data-i18n="value.1.t">Ressources humaines</h3><p data-i18n="value.1.d">Placer l'humain au cœur du développement et investir dans les talents et les compétences du pays.</p></div></div>
-      <div class="value reveal"><span class="num">02</span><div><h3 data-i18n="value.2.t">Éducation</h3><p data-i18n="value.2.d">Offrir à chaque Marocain une éducation de qualité, levier de liberté, d'égalité des chances et de mérite.</p></div></div>
-      <div class="value reveal"><span class="num">03</span><div><h3 data-i18n="value.3.t">Civisme</h3><p data-i18n="value.3.d">Promouvoir une citoyenneté active, responsable et respectueuse des valeurs de la nation.</p></div></div>
-      <div class="value reveal"><span class="num">04</span><div><h3 data-i18n="value.4.t">Mérite</h3><p data-i18n="value.4.d">Récompenser l'effort, la compétence et l'excellence : le mérite comme moteur de justice et d'ascension sociale.</p></div></div>
-      <div class="value reveal"><span class="num">05</span><div><h3 data-i18n="value.5.t">Excellence</h3><p data-i18n="value.5.d">Viser l'excellence dans nos institutions, notre économie et nos ambitions pour le Maroc.</p></div></div>
+      <div class="value reveal"><span class="num">01</span><div><h3 data-i18n="value.1.t">Ressources humaines</h3><p data-i18n="value.1.d">Placer l'humain au cœur du développement : révéler les talents, former les compétences et faire de chaque Marocain un acteur de la nation.</p></div></div>
+      <div class="value reveal"><span class="num">02</span><div><h3 data-i18n="value.2.t">Éducation</h3><p data-i18n="value.2.d">Offrir à chaque enfant du pays, en ville comme au village, une école qui élève : levier de liberté, d'égalité des chances et de mérite.</p></div></div>
+      <div class="value reveal"><span class="num">03</span><div><h3 data-i18n="value.3.t">Civisme</h3><p data-i18n="value.3.d">Faire vivre une citoyenneté active et responsable, où chacun honore le bien commun comme son bien propre.</p></div></div>
+      <div class="value reveal"><span class="num">04</span><div><h3 data-i18n="value.4.t">Mérite</h3><p data-i18n="value.4.d">Récompenser l'effort, la compétence et l'excellence, pour que la naissance ne décide plus du destin : le mérite comme moteur de justice et d'ascension sociale.</p></div></div>
+      <div class="value reveal"><span class="num">05</span><div><h3 data-i18n="value.5.t">Excellence</h3><p data-i18n="value.5.d">Refuser la médiocrité comme horizon : viser l'excellence dans nos institutions, notre économie et nos ambitions pour le Maroc.</p></div></div>
     </div>
   </div>
 </section>
@@ -139,12 +169,12 @@
     <div class="head">
       <p class="kicker reveal" data-i18n="founders.kicker">Les fondateurs</p>
       <h2 class="reveal" data-d="1" data-i18n="founders.title">Les douze membres fondateurs</h2>
-      <p class="reveal" data-d="2" data-i18n="founders.intro">Douze femmes et hommes engagés à servir le Maroc avec compétence, intégrité et mérite.</p>
+      <p class="reveal" data-d="2" data-i18n="founders.intro">Douze femmes et hommes qui engagent leur nom et leur honneur pour servir le Maroc avec compétence, intégrité et mérite.</p>
     </div>
     <div class="founders-grid">
       <div class="member reveal">
         <div class="member-photo">
-          <img src="assets/hamza-portrait.jpg" alt="Hamza El Kouhen, président du Pacte" />
+          <img src="assets/hamza-portrait.jpg" alt="Hamza El Kouhen, président du Pacte" width="470" height="790" loading="lazy" decoding="async" />
           <span class="pres-tag" data-i18n="founders.president">Président</span>
         </div>
         <p class="member-name">Hamza El Kouhen</p>
@@ -170,7 +200,7 @@
 <section class="creed" id="creed">
   <div class="wrap">
     <p class="kicker reveal" data-i18n="creed.kicker">Notre serment</p>
-    <p class="creed-line serif reveal" data-d="1" data-i18n="creed.line">Servir le Maroc avec compétence, intégrité et ambition.</p>
+    <p class="creed-line serif reveal" data-d="1" data-i18n="creed.line">Nous faisons serment de servir le Maroc avec compétence, intégrité et ambition.</p>
   </div>
 </section>
 
@@ -181,7 +211,7 @@
     <div class="head">
       <p class="kicker reveal" data-i18n="join.kicker">Rejoignez le mouvement</p>
       <h2 class="reveal" data-d="1" data-i18n-html="join.title">Signons, ensemble, le <em>pacte</em> de l'avenir.</h2>
-      <p class="reveal" data-d="2" data-i18n="join.sub">Ajoutez votre nom à celles et ceux qui s'engagent pour un Maroc fort, juste et ambitieux.</p>
+      <p class="reveal" data-d="2" data-i18n="join.sub">Signer le Pacte, c'est donner sa parole. Ajoutez votre nom à celles et ceux qui s'engagent pour un Maroc fort, juste et ambitieux.</p>
     </div>
 
     <form class="form reveal" data-d="2" id="joinForm" novalidate>
@@ -189,19 +219,19 @@
       <div class="frow">
         <div class="field">
           <label for="f-name" data-i18n="form.name">Nom complet</label>
-          <input id="f-name" name="name" type="text" autocomplete="name" required />
-          <span class="err" data-err="name" aria-live="polite"></span>
+          <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="err-name" />
+          <span class="err" id="err-name" data-err="name" aria-live="polite"></span>
         </div>
         <div class="field">
           <label for="f-email" data-i18n="form.email">Adresse e-mail</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" required />
-          <span class="err" data-err="email" aria-live="polite"></span>
+          <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="err-email" />
+          <span class="err" id="err-email" data-err="email" aria-live="polite"></span>
         </div>
       </div>
       <div class="field">
         <label for="f-city" data-i18n="form.city">Ville</label>
-        <input id="f-city" name="city" type="text" autocomplete="address-level2" required />
-        <span class="err" data-err="city" aria-live="polite"></span>
+        <input id="f-city" name="city" type="text" autocomplete="address-level2" required aria-describedby="err-city" />
+        <span class="err" id="err-city" data-err="city" aria-live="polite"></span>
       </div>
       <div class="field">
         <label for="f-msg" data-i18n="form.msg">Message (optionnel)</label>
@@ -214,8 +244,8 @@
     </form>
 
     <div class="form-success" id="formSuccess" role="status">
-      <img class="seal" src="assets/emblem-navy.png" alt="" />
-      <h3 data-i18n="success.title">Merci pour votre engagement.</h3>
+      <img class="seal" src="assets/emblem-navy.png" alt="" width="232" height="216" loading="lazy" decoding="async" />
+      <h3 data-i18n="success.title">Votre signature nous honore.</h3>
       <p data-i18n="success.body">Votre signature a bien été enregistrée. Nous reviendrons vers vous très prochainement.</p>
     </div>
   </div>
@@ -226,7 +256,7 @@
   <div class="wrap footer-top">
     <div>
       <a class="brand" href="#top" aria-label="Le Pacte">
-        <img src="assets/emblem-gold.png" alt="" />
+        <img src="assets/emblem-gold.png" alt="" width="232" height="216" loading="lazy" decoding="async" />
         <span class="name">LE PACTE<small data-i18n="brand.sub">De l'excellence et du mérite</small></span>
       </a>
       <p class="foot-tag" data-i18n="footer.tag">Ensemble, signons le pacte de l'avenir.</p>
@@ -238,7 +268,7 @@
         <a href="#valeurs" data-i18n="nav.values">Valeurs</a>
         <a href="#piliers" data-i18n="nav.pillars">Piliers</a>
         <a href="#fondateurs" data-i18n="nav.chef">Fondateurs</a>
-    <a href="programme.html" data-i18n="nav.programme">Programme</a>
+        <a href="programme.html" data-i18n="nav.programme">Programme</a>
         <a href="#join" data-i18n="cta.sign">Signer le pacte</a>
       </div>
       <div class="foot-col">
@@ -261,7 +291,7 @@
     <span>© 2026 Le Pacte. <span data-i18n="footer.rights">Tous droits réservés.</span></span>
     <span class="flag">
       <span data-i18n="footer.made">Pour un Maroc d'excellence</span>
-      <span class="strip" aria-label="Maroc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.5 7.6H22l-6 4.5 2.3 7.4L12 18l-6.3 4.5L8 15.1 2 10.6h7.5z"/></svg></span>
+      <span class="strip" role="img" aria-label="Maroc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.5 7.6H22l-6 4.5 2.3 7.4L12 18l-6.3 4.5L8 15.1 2 10.6h7.5z"/></svg></span>
     </span>
   </div>
   <div class="wrap credits">
@@ -286,86 +316,82 @@ const I18N = {
     "skip":"Aller à l'adhésion",
     "brand.sub":"De l'excellence et du mérite",
     "nav.vision":"Vision","nav.values":"Valeurs","nav.pillars":"Piliers","nav.chef":"Fondateurs","nav.programme":"Programme",
-    "founders.kicker":"Les fondateurs","founders.title":"Les douze membres fondateurs","founders.intro":"Douze femmes et hommes engagés à servir le Maroc avec compétence, intégrité et mérite.","founders.president":"Président","founders.hamzaRole":"DG HEC Rabat","founders.placeholder":"Nom à venir","founders.role":"Membre fondateur","founders.note":"Les noms et portraits des autres membres fondateurs seront ajoutés prochainement.",
+    "founders.kicker":"Les fondateurs","founders.title":"Les douze membres fondateurs","founders.intro":"Douze femmes et hommes qui engagent leur nom et leur honneur pour servir le Maroc avec compétence, intégrité et mérite.","founders.president":"Président","founders.hamzaRole":"DG HEC Rabat","founders.placeholder":"Nom à venir","founders.role":"Membre fondateur","founders.note":"Les noms et portraits des autres membres fondateurs seront ajoutés prochainement.",
     "cta.sign":"Signer le pacte","cta.discover":"Découvrir le mouvement",
     "hero.kicker":"Parti politique · Maroc",
     "hero.h1":"Bâtir le Maroc par <em>l'excellence</em>, l'éducation et le civisme.",
-    "hero.lead":"Un pacte pour un Maroc fort, juste et ambitieux.",
+    "hero.lead":"Un pacte solennel pour un Maroc fort, juste et ambitieux, digne de son histoire et de sa jeunesse.",
     "hero.scroll":"Défiler",
     "vision.kicker":"Notre vision",
     "vision.title":"Un Maroc d'<em>excellence</em>, fidèle à ses valeurs, tourné vers l'avenir.",
-    "vision.body":"Le Pacte est un engagement entre les Marocains et leur avenir : faire de la compétence, de l'intégrité et du mérite les fondations d'une nation forte, juste et solidaire.",
+    "vision.body":"Le Pacte est un engagement entre les Marocains et leur avenir : faire de la compétence, de l'intégrité et du mérite les fondations d'une nation forte, juste et solidaire. Aucune fatalité ne pèse sur ce pays : ce que le Maroc a accompli hier par le courage, il l'accomplira demain par l'excellence.",
     "values.kicker":"Cinq engagements","values.title":"Nos valeurs, notre engagement",
-    "values.intro":"Cinq principes guident chacune de nos décisions et chacun de nos combats pour le Maroc.",
-    "value.1.t":"Ressources humaines","value.1.d":"Placer l'humain au cœur du développement et investir dans les talents et les compétences du pays.",
-    "value.2.t":"Éducation","value.2.d":"Offrir à chaque Marocain une éducation de qualité, levier de liberté, d'égalité des chances et de mérite.",
-    "value.3.t":"Civisme","value.3.d":"Promouvoir une citoyenneté active, responsable et respectueuse des valeurs de la nation.",
-    "value.4.t":"Mérite","value.4.d":"Récompenser l'effort, la compétence et l'excellence : le mérite comme moteur de justice et d'ascension sociale.",
-    "value.5.t":"Excellence","value.5.d":"Viser l'excellence dans nos institutions, notre économie et nos ambitions pour le Maroc.",
+    "values.intro":"Cinq principes, gravés au cœur de notre charte, guident chacune de nos décisions et chacun de nos combats pour le Maroc.",
+    "value.1.t":"Ressources humaines","value.1.d":"Placer l'humain au cœur du développement : révéler les talents, former les compétences et faire de chaque Marocain un acteur de la nation.",
+    "value.2.t":"Éducation","value.2.d":"Offrir à chaque enfant du pays, en ville comme au village, une école qui élève : levier de liberté, d'égalité des chances et de mérite.",
+    "value.3.t":"Civisme","value.3.d":"Faire vivre une citoyenneté active et responsable, où chacun honore le bien commun comme son bien propre.",
+    "value.4.t":"Mérite","value.4.d":"Récompenser l'effort, la compétence et l'excellence, pour que la naissance ne décide plus du destin : le mérite comme moteur de justice et d'ascension sociale.",
+    "value.5.t":"Excellence","value.5.d":"Refuser la médiocrité comme horizon : viser l'excellence dans nos institutions, notre économie et nos ambitions pour le Maroc.",
     "pillars.kicker":"Notre socle","pillars.title":"Quatre piliers, une exigence",
     "pillar.1.t":"Compétence","pillar.1.d":"Décider par la compétence, jamais par la complaisance.",
     "pillar.2.t":"Intégrité","pillar.2.d":"Servir le bien commun avec probité et transparence.",
     "pillar.3.t":"Loyauté","pillar.3.d":"Fidèles à la nation, à ses institutions et à ses citoyens.",
     "pillar.4.t":"Humanité","pillar.4.d":"Une politique au service de l'humain, toujours.",
-    "chef.kicker":"Le chef du parti","chef.badge":"Chef du parti","chef.role":"Directeur Général HEC Rabat",
-    "chef.bio1":"Dirigeant et pédagogue, Hamza El Kouhen porte la conviction qu'un Maroc d'excellence se construit par l'éducation, le mérite et l'engagement civique.",
-    "chef.bio2":"Il fonde Le Pacte pour rassembler les femmes et les hommes décidés à servir le pays avec compétence, intégrité et ambition.",
-    "chef.quote":"« Le mérite doit redevenir la promesse du Maroc. »",
     "join.kicker":"Rejoignez le mouvement",
     "join.title":"Signons, ensemble, le <em>pacte</em> de l'avenir.",
-    "join.sub":"Ajoutez votre nom à celles et ceux qui s'engagent pour un Maroc fort, juste et ambitieux.",
+    "join.sub":"Signer le Pacte, c'est donner sa parole. Ajoutez votre nom à celles et ceux qui s'engagent pour un Maroc fort, juste et ambitieux.",
     "form.name":"Nom complet","form.email":"Adresse e-mail","form.city":"Ville","form.msg":"Message (optionnel)",
     "form.privacy":"Vos informations restent confidentielles et ne servent qu'à vous tenir informé des actions du mouvement.",
-    "success.title":"Merci pour votre engagement.",
+    "success.title":"Votre signature nous honore.",
     "success.body":"Votre signature a bien été enregistrée. Nous reviendrons vers vous très prochainement.",
     "footer.tag":"Ensemble, signons le pacte de l'avenir.",
     "footer.explore":"Explorer","footer.follow":"Suivre","footer.contact":"Contact",
     "footer.rights":"Tous droits réservés.","footer.made":"Pour un Maroc d'excellence",
-    "creed.kicker":"Notre serment","creed.line":"Servir le Maroc avec compétence, intégrité et ambition.","credits.label":"Photographies",
+    "creed.kicker":"Notre serment","creed.line":"Nous faisons serment de servir le Maroc avec compétence, intégrité et ambition.","credits.label":"Photographies",
     "err.name":"Veuillez indiquer votre nom.","err.email":"Adresse e-mail invalide.","err.city":"Veuillez indiquer votre ville.",
+    "a11y.lang":"Basculer en arabe","a11y.menu":"Menu",
+    "meta.desc":"Le Pacte, parti politique pour un Maroc fort, juste et ambitieux. Bâtir le Maroc par l'excellence, l'éducation et le civisme.",
     "_langLabel":"العربية"
   },
   ar: {
     "skip":"الانتقال إلى الانخراط",
     "brand.sub":"من أجل التميّز والاستحقاق",
     "nav.vision":"الرؤية","nav.values":"القيم","nav.pillars":"الركائز","nav.chef":"المؤسِّسون","nav.programme":"البرنامج",
-    "founders.kicker":"المؤسِّسون","founders.title":"الأعضاء المؤسِّسون الاثنا عشر","founders.intro":"اثنتا عشرة امرأةً ورجلاً التزموا بخدمة المغرب بكفاءةٍ ونزاهةٍ واستحقاق.","founders.president":"الرئيس","founders.hamzaRole":"المدير العام HEC الرباط","founders.placeholder":"الاسم قريبًا","founders.role":"عضو مؤسِّس","founders.note":"ستُضاف أسماء وصور باقي الأعضاء المؤسِّسين قريبًا.",
+    "founders.kicker":"المؤسِّسون","founders.title":"الأعضاء المؤسِّسون الاثنا عشر","founders.intro":"اثنتا عشرة امرأةً ورجلاً يضعون أسماءهم وشرفهم في خدمة المغرب، بكفاءةٍ ونزاهةٍ واستحقاق.","founders.president":"الرئيس","founders.hamzaRole":"المدير العام HEC الرباط","founders.placeholder":"الاسم قريبًا","founders.role":"عضو مؤسِّس","founders.note":"ستُضاف أسماء وصور باقي الأعضاء المؤسِّسين قريبًا.",
     "cta.sign":"وقّع الميثاق","cta.discover":"اكتشف الحركة",
     "hero.kicker":"حزب سياسي · المغرب",
     "hero.h1":"نبني المغرب بـ<em>التميّز</em> والتعليم والمواطنة.",
-    "hero.lead":"ميثاقٌ من أجل مغرب قويّ وعادل وطموح.",
+    "hero.lead":"ميثاقُ شرفٍ من أجل مغربٍ قويٍّ وعادلٍ وطموح، جديرٍ بتاريخه وشبابه.",
     "hero.scroll":"تابع",
     "vision.kicker":"رؤيتنا",
     "vision.title":"مغربُ <em>التميّز</em>، وفيٌّ لقيمه، متطلّعٌ إلى المستقبل.",
-    "vision.body":"الميثاق عهدٌ بين المغاربة ومستقبلهم: أن نجعل من الكفاءة والنزاهة والاستحقاق أسسًا لأمّةٍ قويّةٍ وعادلةٍ ومتضامنة.",
+    "vision.body":"الميثاق عهدٌ بين المغاربة ومستقبلهم: أن نجعل من الكفاءة والنزاهة والاستحقاق أسسًا لأمّةٍ قويّةٍ وعادلةٍ ومتضامنة. لا قدَرَ يُثقل كاهل هذا البلد: فما حقّقه المغرب بالأمس بالشجاعة، سيحقّقه غدًا بالتميّز.",
     "values.kicker":"خمسة التزامات","values.title":"قيمنا، التزامنا",
-    "values.intro":"خمسة مبادئ توجّه كلّ قراراتنا وكلّ معاركنا من أجل المغرب.",
-    "value.1.t":"الموارد البشرية","value.1.d":"وضع الإنسان في صميم التنمية والاستثمار في مواهب البلاد وكفاءاتها.",
-    "value.2.t":"التعليم","value.2.d":"توفير تعليمٍ جيّد لكلّ مغربيّ، رافعةً للحرّية وتكافؤ الفرص والاستحقاق.",
-    "value.3.t":"المواطنة","value.3.d":"تعزيز مواطنةٍ فاعلة ومسؤولة تحترم قيم الأمّة.",
-    "value.4.t":"الاستحقاق","value.4.d":"مكافأة الجهد والكفاءة والتميّز: الاستحقاق محرّكًا للعدالة والارتقاء الاجتماعي.",
-    "value.5.t":"التميّز","value.5.d":"السعي إلى التميّز في مؤسّساتنا واقتصادنا وطموحاتنا للمغرب.",
+    "values.intro":"خمسة مبادئ، محفورةٌ في صميم ميثاقنا، توجّه كلّ قراراتنا وكلّ معاركنا من أجل المغرب.",
+    "value.1.t":"الموارد البشرية","value.1.d":"وضع الإنسان في صميم التنمية: اكتشاف المواهب، وصقل الكفاءات، وجعل كلّ مغربيٍّ فاعلًا في بناء الأمّة.",
+    "value.2.t":"التعليم","value.2.d":"أن نمنح كلّ طفلٍ في هذا الوطن، في المدينة كما في القرية، مدرسةً ترتقي به: رافعةً للحرّية وتكافؤ الفرص والاستحقاق.",
+    "value.3.t":"المواطنة","value.3.d":"إحياء مواطنةٍ فاعلةٍ ومسؤولة، يصون فيها كلُّ واحدٍ الصالحَ العام كما يصون مالَه الخاص.",
+    "value.4.t":"الاستحقاق","value.4.d":"مكافأة الجهد والكفاءة والتميّز، حتى لا يبقى المولدُ حاكمًا على المصير: الاستحقاق محرّكًا للعدالة والارتقاء الاجتماعي.",
+    "value.5.t":"التميّز","value.5.d":"رفض الرداءة أفقًا لنا: السعي إلى التميّز في مؤسّساتنا واقتصادنا وطموحاتنا للمغرب.",
     "pillars.kicker":"أساسنا","pillars.title":"أربع ركائز، التزامٌ واحد",
     "pillar.1.t":"الكفاءة","pillar.1.d":"نقرّر بالكفاءة، لا بالمحاباة أبدًا.",
     "pillar.2.t":"النزاهة","pillar.2.d":"نخدم الصالح العام بنزاهةٍ وشفافية.",
     "pillar.3.t":"الوفاء","pillar.3.d":"أوفياء للوطن ولمؤسّساته ولمواطنيه.",
     "pillar.4.t":"الإنسانية","pillar.4.d":"سياسةٌ في خدمة الإنسان، دائمًا.",
-    "chef.kicker":"رئيس الحزب","chef.badge":"رئيس الحزب","chef.role":"المدير العام لـ HEC الرباط",
-    "chef.bio1":"قائدٌ وتربويّ، يؤمن حمزة الكوهن بأنّ مغرب التميّز يُبنى بالتعليم والاستحقاق والالتزام المدني.",
-    "chef.bio2":"أسّس الميثاق ليجمع النساء والرجال العازمين على خدمة الوطن بكفاءةٍ ونزاهةٍ وطموح.",
-    "chef.quote":"«يجب أن يعود الاستحقاق وعدًا للمغرب.»",
     "join.kicker":"انضمّ إلى الحركة",
     "join.title":"لنوقّع معًا <em>ميثاق</em> المستقبل.",
-    "join.sub":"أضف اسمك إلى من يلتزمون بمغربٍ قويّ وعادل وطموح.",
+    "join.sub":"أن توقّع الميثاق هو أن تمنح كلمتك. أضف اسمك إلى من يلتزمون بمغربٍ قويٍّ وعادلٍ وطموح.",
     "form.name":"الاسم الكامل","form.email":"البريد الإلكتروني","form.city":"المدينة","form.msg":"رسالة (اختياري)",
     "form.privacy":"تبقى معلوماتك سرّية ولا تُستعمل إلّا لإطلاعك على أنشطة الحركة.",
-    "success.title":"شكرًا على التزامك.",
+    "success.title":"توقيعك يشرّفنا.",
     "success.body":"تمّ تسجيل توقيعك بنجاح. سنتواصل معك في القريب العاجل.",
     "footer.tag":"معًا، لنوقّع ميثاق المستقبل.",
     "footer.explore":"استكشف","footer.follow":"تابعنا","footer.contact":"اتصال",
     "footer.rights":"جميع الحقوق محفوظة.","footer.made":"من أجل مغرب التميّز",
-    "creed.kicker":"قَسَمُنا","creed.line":"خدمة المغرب بكفاءةٍ ونزاهةٍ وطموح.","credits.label":"الصور",
+    "creed.kicker":"قَسَمُنا","creed.line":"نُقسِم أن نخدم المغرب بكفاءةٍ ونزاهةٍ وطموح.","credits.label":"الصور",
     "err.name":"يُرجى إدخال اسمك.","err.email":"البريد الإلكتروني غير صالح.","err.city":"يُرجى إدخال مدينتك.",
+    "a11y.lang":"التبديل إلى الفرنسية","a11y.menu":"القائمة",
+    "meta.desc":"الميثاق، حزب سياسي من أجل مغرب قويّ وعادل وطموح. نبني المغرب بالتميّز والتعليم والمواطنة.",
     "_langLabel":"Français"
   }
 };
@@ -384,7 +410,12 @@ function applyLang(l){
   document.querySelectorAll("[data-i18n-html]").forEach(el=>{
     const k = el.getAttribute("data-i18n-html"); if(dict[k]!=null) el.innerHTML = dict[k];
   });
-  document.getElementById("langLabel").textContent = dict["_langLabel"];
+  const langLabel = document.getElementById("langLabel");
+  langLabel.textContent = dict["_langLabel"];
+  langLabel.setAttribute("lang", l === "fr" ? "ar" : "fr");
+  document.getElementById("langBtn").setAttribute("aria-label", dict["a11y.lang"]);
+  document.getElementById("burger").setAttribute("aria-label", dict["a11y.menu"]);
+  document.querySelector('meta[name="description"]').setAttribute("content", dict["meta.desc"]);
   localStorage.setItem("lepacte-lang", l);
 }
 
@@ -404,6 +435,11 @@ burger.addEventListener("click", ()=>{
 document.querySelectorAll("#mobileMenu a").forEach(a=> a.addEventListener("click", ()=>{
   document.body.classList.remove("menu-open"); burger.setAttribute("aria-expanded","false");
 }));
+window.addEventListener("keydown", (e)=>{
+  if(e.key === "Escape" && document.body.classList.contains("menu-open")){
+    document.body.classList.remove("menu-open"); burger.setAttribute("aria-expanded","false"); burger.focus();
+  }
+});
 
 /* ---- Reveal au scroll ---- */
 const io = new IntersectionObserver((entries)=>{
@@ -466,7 +502,8 @@ form.addEventListener("submit", async (e)=>{
 function showSuccess(){
   form.style.display = "none";
   success.classList.add("show");
-  success.scrollIntoView({behavior:"smooth", block:"center"});
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  success.scrollIntoView({behavior: reduce ? "auto" : "smooth", block:"center"});
 }
 
 /* ---- Init ---- */
